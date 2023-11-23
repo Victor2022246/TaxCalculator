@@ -22,6 +22,7 @@ public class TaxCalculator {
         System.out.println(junior.getPaye());
         System.out.println(junior.getPrsi());
         System.out.println(junior.getOwn());
+        System.out.println(junior.showCalculation());
     }
     
 }
