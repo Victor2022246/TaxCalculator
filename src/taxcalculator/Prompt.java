@@ -13,8 +13,12 @@ import java.util.Scanner;
 //Creating prompt which will ask for User's input
 public class Prompt {
     
+    //public String userName;
+    public int typeOfUser;
     public String userName;
     public String password;
+    
+
     
     //Adding scanner to get users input
     Scanner mykb = new Scanner(System.in);
@@ -28,40 +32,60 @@ public class Prompt {
                 + "1.Administrator\n"
                 + "2.User");
         
-    }
-    
-    public void TypeOfUser(){
+    }  
+    public void TypeOfUser(){      
             int typeOfUser = mykb.nextInt();
-            
-            if(typeOfUser==1){
+            mykb.nextLine();
+        switch (typeOfUser) {
+            case 1:
+                boolean isAdmin = false;
+                
+                while(!isAdmin){
                 System.out.println("Please enter your credentials.");
-            }else if(typeOfUser==2){
+                System.out.println("USERNAME:");
+                String userName = mykb.nextLine();
+                
+                System.out.println("PASSWORD:");
+                String password = mykb.nextLine();
+                userName = userName.toUpperCase();
+                if("CCT".equals(userName)&&"Dublin".equalsIgnoreCase(password)){
+                    System.out.println("Welcomee CCT Adminsitrator!!!");
+                    isAdmin=true;
+                }else{
+                    System.out.println("Wrong Credentials. Please try again!");
+                }
+                }
+                break;
+            case 2:
+                
+                boolean passwordMatches = false;
+                
+                
                 System.out.println("Welcome User. Please sign up:");
-            }else{
-                System.out.println("Please enter the numbers 1 or 2.");
-            }
-            
-    }
-    
-    //Method will get user surname
-    public void UserNameImput(){
-        //Ask user for username
-        System.out.println("UserName: ");
-        //Collecting user's input
-        String userName = mykb.nextLine();
-        //IF user input is CCT, asks for password
-        System.out.println("Password: ");
-        if (userName=="CCT"){
-            System.out.println("Password: ");
-            String password = mykb.nextLine();
-            if (password=="Dublin"){
-                System.out.println("Welcome CCT Administrator");
-            }
-        }else{
-            System.out.println("Welcome Student "+ userName);
+                System.out.println("Frst, enter your USERNAME");
+                
+                String userStudent = mykb.nextLine();
+                
+                while(!passwordMatches){
+                System.out.println("Now enter your PASSWORD:");
+                
+                String passwordStudent = mykb.nextLine();
+                
+                System.out.println("Please enter your password again:");
+                
+                String passwordStudent2 = mykb.nextLine();
+                
+                if(passwordStudent.equals(passwordStudent2)){
+                    System.out.println("WElcome " + userStudent + "You are now signed up!");
+                    passwordMatches=true;
+                }else{
+                    System.out.println("Your passwords don't match. Please try again!");
+                }
+                }
+                break;
+            default:
+                System.out.println("Please enter the numbers 1 or 2 which reffers to your rype of user!");
+                break;       
         }
-    }
-    
-    
-    
+        }
 }
