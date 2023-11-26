@@ -86,7 +86,7 @@ public class Prompt {
                 //While passwordmatches not true(true in this case)
                 //Keep asking for password, until both matches
                 while(!passwordMatches){
-                    //Prompt requestin password
+                //Prompt requestin password
                 System.out.println("Now enter your PASSWORD:");
                 //Collecting password
                 String passwordStudent = mykb.nextLine();
@@ -117,4 +117,5 @@ public class Prompt {
     public ArrayList<String> getUsersArray(){
         return usersArray;
     }
+    
 }

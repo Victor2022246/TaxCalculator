@@ -14,6 +14,13 @@ public class Admin {
     private String surName;
     private String age;
 
+    public Admin(String firstName, String surName, String age) {
+        this.firstName = firstName;
+        this.surName = surName;
+        this.age = age;
+    }
+
+    
     public String getFirstName() {
         return firstName;
     }
