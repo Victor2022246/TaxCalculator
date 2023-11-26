@@ -16,6 +16,11 @@ public class TaxCalculator {
     public static void main(String[] args) {
         // TODO code application logic here
         
+        //Displaying welcome message
+        System.out.println("Hi!! Welcome to the TAX calculator!/n"
+                + "Please, provide your credentials!/n"
+                + "Username:");
+        
         Employee junior = new Employee ("junior", "rodrigues",45000, 2000);
         
         System.out.println(junior.getOver());

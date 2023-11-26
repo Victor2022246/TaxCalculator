@@ -21,7 +21,7 @@ public class DatabaseSetup extends Database {
         
         
         
-      // try and catch for trying create  a connection with the database  using the DriverManager, with the properties of the class data base as pharamentesr  
+     // try and catch for trying create  a connection with the database  using the DriverManager, with the properties of the class data base as pharamentesr  
     try(Connection conn= DriverManager.getConnection(DB_BASE_URL, USER,PASSWORD);
     Statement stmt = conn.createStatement();
     ){
@@ -48,8 +48,6 @@ public class DatabaseSetup extends Database {
         stmt.execute(sql);
         return true;
                
-             
-    
     }catch (Exception e){
     e.printStackTrace();
     return false;

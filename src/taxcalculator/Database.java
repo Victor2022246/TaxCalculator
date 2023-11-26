@@ -9,6 +9,7 @@ package taxcalculator;
  * @author victor pc
  */
 public abstract class Database {
+    
     final static String DB_BASE_URL= "jdbc:mysql://localhost";
     final static String USER = "ooc2023";
     final static  String PASSWORD= "ooc2023";

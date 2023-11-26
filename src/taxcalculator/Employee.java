@@ -102,7 +102,7 @@ public class Employee {
     
     
     public double showCalculation(){
-        System.out.println("hellor mr(s) " + name );
+        System.out.println("hello mr(s) " + name );
         System.out.println(" this are youy tax calculation");
         System.out.println("Your gross salary is " + salary + "and yor tax credits are " + taxCredits);
         System.out.println("The paye tax based on a 20% rate over 40 thousands + 40% over the overtime is " + paye);
