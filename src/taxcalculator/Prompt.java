@@ -4,6 +4,7 @@
  */
 package taxcalculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -14,10 +15,11 @@ import java.util.Scanner;
 public class Prompt {
     
     //Declaring possible variables
-    public String userName;
-    public String password;
-    public int typeOfUser;
-  
+    private String userName;
+    private String password;
+    private int typeOfUser;
+    //Declaring an Array List, where the user's will be stored
+    private ArrayList<String> usersArray = new ArrayList<>();
     
 
     
@@ -88,6 +90,8 @@ public class Prompt {
                 System.out.println("Now enter your PASSWORD:");
                 //Collecting password
                 String passwordStudent = mykb.nextLine();
+                //Adding any new users into our array
+                usersArray.add(userStudent);
                 //Asking to input password again
                 System.out.println("Please enter your password again:");
                 //Collecting second password's input
@@ -109,4 +113,8 @@ public class Prompt {
                 break;       
         }
         }
+    //Method to get the Array of userNames
+    public ArrayList<String> getUsersArray(){
+        return usersArray;
+    }
 }
