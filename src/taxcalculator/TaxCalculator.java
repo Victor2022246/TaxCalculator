@@ -21,7 +21,7 @@ public class TaxCalculator {
         
         Prompt one = new Prompt();
         one.Welcome();
-        one.TypeOfUser();
+        one.UserValidation();
                 
         //Importing scanner to get user's input
 //        Scanner myKB = new Scanner(System.in);
