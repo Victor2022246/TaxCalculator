@@ -8,6 +8,10 @@ package taxcalculator;
  *
  * @author sande
  */
-public class TaxFees {
-    
+//Class to declare all variables we will use for taxes
+public abstract class TaxFees {
+    //Tax Credits variables
+    protected final static double PAYE = 0.2;
+    protected final static double USC = 0.05;
+    protected final static double PRSI = 0.03;  
 }
