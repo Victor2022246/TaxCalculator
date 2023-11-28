@@ -21,7 +21,7 @@ public class DatabaseWriter extends Database{
                 Statement stmt= conn.createStatement();
                 ){
                     String sql = String.format("INSERT INTO " + TABLE_NAME + " VALUES ("
-                       + "%d,'%s','%s', %d, %d);",
+                       + "%d,'%s','%s', %f, %f);",
                           employee.getEmployeeID(), employee.getName(), employee.getSurname(), employee.getGrossSalary(), employee.getNetSalary());
                   stmt.execute(sql);
                   return true;
