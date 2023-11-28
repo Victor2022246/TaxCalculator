@@ -31,15 +31,15 @@ public class DatabaseSetup extends Database {
         // String to store the table which will be created 
         String sql =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
+                + "employeeID INT(10),"
                 + "name VARCHAR(255),"
                 + "surname VARCHAR(300),"
-                + "employeeID INT(10),"
                 + "grossSalary FLOAT(10,2),"
                 + "PAYE(20%) FLOAT(10,2),"
                 + "USC(5%) FLOAT(10,2),"
                 + "PRSI(3%) FLOAT(10,2),"
                 + "netSalary FLOAT(10,2)"
-                +  ");";        
+                +  ");";
         stmt.execute(sql);
         return true;//If connection is successfull, return true            
     }catch (Exception e){//Otherwise return the catch and false

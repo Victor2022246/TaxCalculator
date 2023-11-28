@@ -20,10 +20,12 @@ public class TaxCalculator {
   
         
         Employee ee = new Employee("Sander", "Soares", 10000);
-        System.out.println(ee);
+        Employee es = new Employee("Victor", "Oliveira", 50000);
         
-        ee.Salary();
-        System.out.println(Employee.getCurrentID());
+  
+        System.out.println(ee.getEmployeeID());
+        System.out.println(es.getEmployeeID());
+        
         
          if(DatabaseSetup.setupDB()){
             System.out.println("Database and Table created");
