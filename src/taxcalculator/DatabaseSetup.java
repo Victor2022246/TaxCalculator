@@ -34,11 +34,11 @@ public class DatabaseSetup extends Database {
                 + "name VARCHAR(255),"
                 + "surname VARCHAR(300),"
                 + "employeeID INT(10),"
-                + "grossSalary INT(10),"
-                + "PAYE(20%) INT(10),"
-                + "USC(5%) INT(10),"
-                + "PRSI(3%) INT(10),"
-                + "netSalary INT(10)"
+                + "grossSalary FLOAT(10,2),"
+                + "PAYE(20%) FLOAT(10,2),"
+                + "USC(5%) FLOAT(10,2),"
+                + "PRSI(3%) FLOAT(10,2),"
+                + "netSalary FLOAT(10,2)"
                 +  ");";        
         stmt.execute(sql);
         return true;//If connection is successfull, return true            
