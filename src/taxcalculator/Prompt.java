@@ -122,7 +122,9 @@ public class Prompt {
                     mykb.nextLine();//Just breaking the input so it won't crash       
                     Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                    
                     DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer      
-                    dbw.addEmployee(newEmp);//Adding into our table(Writer)                 
+                    dbw.addEmployee(newEmp);//Adding into our table(Writer)  
+                    
+                    System.out.println(newEmp.Salary());
                 }
                 break;
             default:
