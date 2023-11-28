@@ -13,11 +13,11 @@ public class Employee extends TaxFees{
     private String name;
     private String surname;
     private int employeeID;
-    private double grossSalary;
-    private double netSalary;
+    private float grossSalary;
+    private float netSalary;
     private static int currentID=1;
 
-    public Employee(String name, String surname, double grossSalary) {
+    public Employee(String name, String surname, float grossSalary) {
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
@@ -50,18 +50,17 @@ public class Employee extends TaxFees{
         return currentID;
     }
 
-    public static double getPAYE() {
-        return PAYE;
+    public double getPAYE() {
+        return grossSalary*PAYE;
     }
 
-    public static double getUSC() {
-        return USC;
+    public double getUSC() {
+        return grossSalary*USC;
     }
 
-    public static double getPRSI() {
-        return PRSI;
+    public double getPRSI() {
+        return grossSalary*PRSI;
     }
-    
     
     //Method to show the Taxes' deductions
     public String Salary(){
