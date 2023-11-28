@@ -25,6 +25,43 @@ public class Employee extends TaxFees{
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public double getGrossSalary() {
+        return grossSalary;
+    }
+
+    public double getNetSalary() {
+        return netSalary;
+    }
+
+    public static int getCurrentID() {
+        return currentID;
+    }
+
+    public static double getPAYE() {
+        return PAYE;
+    }
+
+    public static double getUSC() {
+        return USC;
+    }
+
+    public static double getPRSI() {
+        return PRSI;
+    }
+    
     
     //Method to show the Taxes' deductions
     public String Salary(){
