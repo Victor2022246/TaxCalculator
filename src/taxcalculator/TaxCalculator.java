@@ -18,25 +18,28 @@ public class TaxCalculator {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         // TODO code application logic here
   
+        Prompt p1 = new Prompt();
+        p1.Welcome();
+        p1.UserValidation();
         
-        Employee emp1 = new Employee("Sander", "Soares", 10000);
-        Employee emp2 = new Employee("Victor", "Oliveira", 50000);
-        Employee emp3 = new Employee("Kevin", "Santos", 27000);
-        Employee emp4 = new Employee("Renato", "Ramos", 42000);
-        Employee emp5 = new Employee("Felipe", "Paiva", 39000);
-        
-        
-  
-        System.out.println(emp1.getEmployeeID());
-        System.out.println(emp2.getEmployeeID());
-       
-        DatabaseWriter dbw = new DatabaseWriter();
-        dbw.addEmployee(emp1);
-        dbw.addEmployee(emp2);
-        dbw.addEmployee(emp3);
-        dbw.addEmployee(emp4);
-        dbw.addEmployee(emp5);
-        
+//        Employee emp1 = new Employee("Sander", "Soares", 10000);
+//        Employee emp2 = new Employee("Victor", "Oliveira", 50000);
+//        Employee emp3 = new Employee("Kevin", "Santos", 27000);
+//        Employee emp4 = new Employee("Renato", "Ramos", 42000);
+//        Employee emp5 = new Employee("Felipe", "Paiva", 39000);
+//        
+//        
+//  
+//        System.out.println(emp1.getEmployeeID());
+//        System.out.println(emp2.getEmployeeID());
+//       
+//        DatabaseWriter dbw = new DatabaseWriter();
+//        dbw.addEmployee(emp1);
+//        dbw.addEmployee(emp2);
+//        dbw.addEmployee(emp3);
+//        dbw.addEmployee(emp4);
+//        dbw.addEmployee(emp5);
+//        
         
         //DATA BASE CONNECTION WAS SUCCESFULL
 //         if(DatabaseSetup.setupDB()){

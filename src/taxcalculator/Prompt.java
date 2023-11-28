@@ -4,8 +4,10 @@
  */
 package taxcalculator;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static taxcalculator.Employee.getCurrentID;
 
 /**
  *
@@ -37,7 +39,7 @@ public class Prompt {
         
     }  
     //Method that will validate the user credentials
-    public void UserValidation(){
+    public void UserValidation() throws SQLException{
         //Getting what user inputs on the keyboard
             int typeOfUser = mykb.nextInt();
             //To be sure that the newLine character is consumed, a nextLine method is added.
@@ -105,6 +107,22 @@ public class Prompt {
                     //In case both dont match, user will have to type again
                     System.out.println("Your passwords don't match. Please try again!");
                 }
+                
+                    //Asking for his name. This will be updated on the table
+                    System.out.println("Now please Insert your Name: ");
+                    String newName = mykb.nextLine();//Receiving input
+                    newName = newName.trim();//Trim unnecessary spaces
+                    
+                    System.out.println("Now please insert your surname: ");//Asking for surname
+                    String newSurname = mykb.nextLine();//Collectting surname
+                    newSurname = newSurname.trim();//Removing unnecessary spaces
+                    
+                    System.out.println("Now please insert your Gross Salary: ");//Asking for GrossSalary
+                    double grossSalaryUser = mykb.nextFloat();//Receiving Input
+                    mykb.nextLine();//Just breaking the input so it won't crash       
+                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                    
+                    DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer      
+                    dbw.addEmployee(newEmp);//Adding into our table(Writer)                 
                 }
                 break;
             default:

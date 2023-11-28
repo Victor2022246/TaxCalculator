@@ -61,6 +61,11 @@ public class Employee extends TaxFees{
     public double getPRSI() {
         return grossSalary*PRSI;
     }
+
+    public static void setCurrentID(int currentID) {
+        Employee.currentID = currentID;
+    }
+    
     
     //Method to show the Taxes' deductions
     public String Salary(){
