@@ -20,38 +20,33 @@ public class TaxCalculator {
   
         
         
-        Employee ee = new Employee("Sander", "Soares", 10000);
-        Employee es = new Employee("Victor", "Oliveira", 50000);
+        Employee emp1 = new Employee("Sander", "Soares", 10000);
+        Employee emp2 = new Employee("Victor", "Oliveira", 50000);
         
   
-        System.out.println(ee.getEmployeeID());
-        System.out.println(es.getEmployeeID());
+        System.out.println(emp1.getEmployeeID());
+        System.out.println(emp2.getEmployeeID());
         
-        ee.Salary();
-        es.Salary();
+        emp1.Salary();
+        emp2.Salary();
         
-         if(DatabaseSetup.setupDB()){
-            System.out.println("Database and Table created");
-        }else{
-            System.out.println("Oh no! There was a database creation problem...");
-        }
         DatabaseWriter dbw = new DatabaseWriter();
-        if (dbw.addEmployee(ee)){
-            System.out.println("ee added");
-        }
+        dbw.addEmployee(emp1);
+        dbw.addEmployee(emp2);
         
+        emp1.Salary();
         
-//        Prompt one = new Prompt();
-//        one.Welcome();
-//        one.UserValidation();
+        //DATA BASE CONNECTION WAS SUCCESFULL
+//         if(DatabaseSetup.setupDB()){
+//            System.out.println("Database and Table created");
+//        }else{
+//            System.out.println("Oh no! There was a database creation problem...");
+//        }
+//        DatabaseWriter dbw = new DatabaseWriter();
+//        if (dbw.addEmployee(ee)){
+//            System.out.println("ee added");
+//        }
         
-        //        Employee junior = new Employee ("junior", "rodrigues",45000, 2000);
-//        
-//        System.out.println(junior.getOver());
-//        System.out.println(junior.getPaye());
-//        System.out.println(junior.getPrsi());
-//        System.out.println(junior.getOwn());
-//        System.out.println(junior.showCalculation());
     
     }
 }

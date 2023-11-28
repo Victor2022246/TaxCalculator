@@ -21,7 +21,7 @@ public class Employee extends TaxFees{
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
-        this.netSalary = (grossSalary-(grossSalary*PAYE*USC*PRSI));//The net salary will be after all deduction
+        this.netSalary = (grossSalary-(grossSalary*PAYE)-(grossSalary*USC)-(grossSalary*PRSI));//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
     }
