@@ -29,10 +29,10 @@ public class Employee extends TaxFees{
     //Method to show the Taxes' deductions
     public String Salary(){
         System.out.println("Hello " + name );
-        System.out.println("Gross Salary " + grossSalary);
-        System.out.println("TAX PAYE(20%) "+ grossSalary*PAYE);
-        System.out.println("TAX USC(5%) " + grossSalary*USC);
-        System.out.println("TAX PRSI(3%) " + grossSalary*PRSI);
-    return "NetSalary = " + netSalary;
+        System.out.println("Gross Salary: " + grossSalary + " €");
+        System.out.println("TAX PAYE(20%): "+ grossSalary*PAYE + " €");
+        System.out.println("TAX USC(5%): " + grossSalary*USC + " €");
+        System.out.println("TAX PRSI(3%): " + grossSalary*PRSI + " €");
+    return "NetSalary = " + netSalary +" €";
     }
 }
