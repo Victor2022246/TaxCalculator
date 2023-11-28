@@ -4,6 +4,8 @@
  */
 package taxcalculator;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author victor pc
@@ -13,13 +15,30 @@ public class TaxCalculator {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         // TODO code application logic here
+  
+        
+        Employee ee = new Employee("Sander", "Soares", 10000);
+        System.out.println(ee);
+        
+        ee.Salary();
+        System.out.println(Employee.getCurrentID());
+        
+         if(DatabaseSetup.setupDB()){
+            System.out.println("Database and Table created");
+        }else{
+            System.out.println("Oh no! There was a database creation problem...");
+        }
+        DatabaseWriter dbw = new DatabaseWriter();
+        if (dbw.addEmployee(ee)){
+            System.out.println("ee added");
+        }
         
         
-        Prompt one = new Prompt();
-        one.Welcome();
-        one.UserValidation();
+//        Prompt one = new Prompt();
+//        one.Welcome();
+//        one.UserValidation();
         
         //        Employee junior = new Employee ("junior", "rodrigues",45000, 2000);
 //        
@@ -28,6 +47,7 @@ public class TaxCalculator {
 //        System.out.println(junior.getPrsi());
 //        System.out.println(junior.getOwn());
 //        System.out.println(junior.showCalculation());
-    }
     
+    }
 }
+

@@ -70,6 +70,7 @@ public class Employee extends TaxFees{
         System.out.println("TAX PAYE(20%): "+ grossSalary*PAYE + " €");
         System.out.println("TAX USC(5%): " + grossSalary*USC + " €");
         System.out.println("TAX PRSI(3%): " + grossSalary*PRSI + " €");
-    return "NetSalary = " + netSalary +" €";
+        System.out.println("NET Salary = " + netSalary + " €");
+    return "o";
     }
 }
