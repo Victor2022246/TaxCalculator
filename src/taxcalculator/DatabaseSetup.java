@@ -35,9 +35,9 @@ public class DatabaseSetup extends Database {
                 + "name VARCHAR(255),"
                 + "surname VARCHAR(300),"
                 + "grossSalary DOUBLE(10,2),"
-                + "PAYE(20%) DOUBLE(10,2),"
-                + "USC(5%) DOUBLE(10,2),"
-                + "PRSI(3%) DOUBLE(10,2),"
+                + "PAYE DOUBLE(10,2),"
+                + "USC DOUBLE(10,2),"
+                + "PRSI DOUBLE(10,2),"
                 + "netSalary DOUBLE(10,2)"
                 +  ");";
         stmt.execute(sql);
