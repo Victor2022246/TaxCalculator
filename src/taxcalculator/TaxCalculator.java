@@ -19,6 +19,7 @@ public class TaxCalculator {
         // TODO code application logic here
   
         
+        
         Employee ee = new Employee("Sander", "Soares", 10000);
         Employee es = new Employee("Victor", "Oliveira", 50000);
         
@@ -26,6 +27,8 @@ public class TaxCalculator {
         System.out.println(ee.getEmployeeID());
         System.out.println(es.getEmployeeID());
         
+        ee.Salary();
+        es.Salary();
         
          if(DatabaseSetup.setupDB()){
             System.out.println("Database and Table created");

@@ -11,7 +11,7 @@ package taxcalculator;
 //Class to declare all variables we will use for taxes
 public abstract class TaxFees {
     //Tax Credits variables
-    float PAYE = (float) 0.2;
-    float USC = (float) 0.05;
-    float PRSI = (float) 0.03; 
+    double PAYE =  0.2;
+    double USC =  0.05;
+    double PRSI =  0.03; 
 }

@@ -13,11 +13,11 @@ public class Employee extends TaxFees{
     private String name;
     private String surname;
     private int employeeID;
-    private float grossSalary;
-    private float netSalary;
+    private double grossSalary;
+    private double netSalary;
     private static int currentID=1;
 
-    public Employee(String name, String surname, float grossSalary) {
+    public Employee(String name, String surname, double grossSalary) {
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
