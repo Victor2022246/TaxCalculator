@@ -31,7 +31,7 @@ public class DatabaseSetup extends Database {
         // String to store the table which will be created 
         String sql =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
-                + "employeeID INT(10),"
+                + "employeeID INT PRIMARY KEY AUTO_INCREMENT,"
                 + "name VARCHAR(255),"
                 + "surname VARCHAR(300),"
                 + "grossSalary DOUBLE(10,2),"
