@@ -16,16 +16,17 @@ public class Employee extends TaxFees{
     private double grossSalary;
     private double netSalary;
     private double totalOwe;
+    private double over = grossSalary-40000;
     private static int currentID=1;
 
     public Employee(String name, String surname, double grossSalary) {
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
-        if(grossSalary<40000){
-            this.PAYE=PAYE;
-        }else {
-            this.PAYE = ((grossSalary-40000)*0.4);
+        if(over<0){
+            this.PAYE=PAYE20;
+        }else{
+        this.PAYE=((grossSalary-over)*0.2)+(over*0.4);
         }
         this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
         this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
@@ -71,6 +72,10 @@ public class Employee extends TaxFees{
 
     public double getTotalOwe() {
         return totalOwe;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
     
 
