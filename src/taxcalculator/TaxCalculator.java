@@ -20,15 +20,12 @@ public class TaxCalculator {
   
         
         //DATA BASE CONNECTION WAS SUCCESFULL
-//         if(DatabaseSetup.setupDB()){
-//            System.out.println("Database and Table created");
-//        }else{
-//            System.out.println("Oh no! There was a database creation problem...");
-//        }
-//        DatabaseWriter dbw = new DatabaseWriter();
-//        if (dbw.addEmployee(emp1)){
-//            System.out.println("emp1 added");
-//        }
+         if(DatabaseSetup.setupDB()){
+            System.out.println("Database and Table created");
+        }else{
+            System.out.println("Oh no! There was a database creation problem...");
+        }
+        
 
 //        Prompt p1 = new Prompt();
 //        p1.Welcome();
@@ -46,6 +43,13 @@ public class TaxCalculator {
         dbw.addEmployee(emp3);
         dbw.addEmployee(emp4);
         dbw.addEmployee(emp5);
+        
+        emp1.Salary();
+        emp2.Salary();
+        emp3.Salary();
+        emp4.Salary();
+        emp5.Salary();
+        
         
         
 //  
