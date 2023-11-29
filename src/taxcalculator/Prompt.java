@@ -39,7 +39,7 @@ public class Prompt {
         
     }  
     //Method that will validate the user credentials
-    public void UserValidation() throws SQLException{
+    public void UserValidation() throws SQLException, Exception{
         //Getting what user inputs on the keyboard
             int typeOfUser = mykb.nextInt();
             //To be sure that the newLine character is consumed, a nextLine method is added.
@@ -122,7 +122,9 @@ public class Prompt {
                     mykb.nextLine();//Just breaking the input so it won't crash       
                     Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                           
                   
-                    newEmp.setEmployeeID(Employee.getCurrentID());
+                    DatabaseReader dbReader = new DatabaseReader();
+                    int lastEmployeeID = dbReader.getLastEmployeeID();
+                    newEmp.setEmployeeID(lastEmployeeID+1);
                     DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer 
                     dbw.addEmployee(newEmp);//Adding into our table(Writer)
                     
