@@ -10,7 +10,7 @@ package taxcalculator;
  */
 public class Menu {
     
-    public void OptionsMenu(){
+    public void OptionsMenu() {
         
         System.out.println("Please choose an option:\n"
                 + "1. Modify your profile\n"
