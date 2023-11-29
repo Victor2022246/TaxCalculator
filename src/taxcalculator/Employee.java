@@ -15,6 +15,7 @@ public class Employee extends TaxFees{
     private int employeeID;
     private double grossSalary;
     private double netSalary;
+    private double totalOwe;
     private static int currentID=1;
 
     public Employee(String name, String surname, double grossSalary) {
@@ -23,10 +24,11 @@ public class Employee extends TaxFees{
         this.grossSalary = grossSalary;
         if(grossSalary<40000){
             this.PAYE=PAYE;
-        }else{
-            this.PAYE = 0.4;
+        }else {
+            this.PAYE = ((grossSalary-40000)*0.4);
         }
-        this.netSalary = (grossSalary-(grossSalary*PAYE)-(grossSalary*USC)-(grossSalary*PRSI));//The net salary will be after all deduction
+        this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
+        this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
     }
@@ -67,6 +69,11 @@ public class Employee extends TaxFees{
         return grossSalary*PRSI;
     }
 
+    public double getTotalOwe() {
+        return totalOwe;
+    }
+    
+
     public static void setCurrentID(int currentID) {
         Employee.currentID = currentID;
     }
@@ -78,6 +85,7 @@ public class Employee extends TaxFees{
         System.out.println("TAX PAYE: "+ grossSalary*PAYE + " €");
         System.out.println("TAX USC: " + grossSalary*USC + " €");
         System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
+        System.out.println("Total Owe: " + totalOwe + " €");
         System.out.println("NET Salary = " + netSalary + " €");
         return "";
     }

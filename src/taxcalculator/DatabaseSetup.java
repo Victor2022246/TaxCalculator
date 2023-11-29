@@ -38,6 +38,7 @@ public class DatabaseSetup extends Database {
                 + "PAYE DOUBLE(10,2),"
                 + "USC DOUBLE(10,2),"
                 + "PRSI DOUBLE(10,2),"
+                + "TotalOwe DOUBLE(10,2),"
                 + "netSalary DOUBLE(10,2)"
                 +  ");";
         stmt.execute(sql);
