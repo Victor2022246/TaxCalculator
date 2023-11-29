@@ -21,6 +21,11 @@ public class Employee extends TaxFees{
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
+        if(grossSalary<40000){
+            this.PAYE=PAYE;
+        }else{
+            this.PAYE = 0.4;
+        }
         this.netSalary = (grossSalary-(grossSalary*PAYE)-(grossSalary*USC)-(grossSalary*PRSI));//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
@@ -65,20 +70,15 @@ public class Employee extends TaxFees{
     public static void setCurrentID(int currentID) {
         Employee.currentID = currentID;
     }
-    
-    
+       
     //Method to show the Taxes' deductions
     public String Salary(){
         System.out.println("Hello " + name );
         System.out.println("Gross Salary: " + grossSalary + " €");
-        System.out.println("TAX PAYE(20%): "+ grossSalary*PAYE + " €");
-        System.out.println("TAX USC(5%): " + grossSalary*USC + " €");
-        System.out.println("TAX PRSI(3%): " + grossSalary*PRSI + " €");
+        System.out.println("TAX PAYE: "+ grossSalary*PAYE + " €");
+        System.out.println("TAX USC: " + grossSalary*USC + " €");
+        System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
         System.out.println("NET Salary = " + netSalary + " €");
         return "";
-    }
-    
-    public static void resetCurrentID(){
-        currentID=1;
     }
 }
