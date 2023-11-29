@@ -73,6 +73,10 @@ public class Employee extends TaxFees{
     public double getTotalOwe() {
         return totalOwe;
     }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
     
 
     public static void setCurrentID(int currentID) {

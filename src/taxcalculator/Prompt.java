@@ -120,15 +120,17 @@ public class Prompt {
                     System.out.println("Now please insert your Gross Salary: ");//Asking for GrossSalary
                     double grossSalaryUser = mykb.nextFloat();//Receiving Input
                     mykb.nextLine();//Just breaking the input so it won't crash       
-                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                    
-                    DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer      
-                    dbw.addEmployee(newEmp);//Adding into our table(Writer)  
+                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                           
+                  
+                    newEmp.setEmployeeID(Employee.getCurrentID());
+                    DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer 
+                    dbw.addEmployee(newEmp);//Adding into our table(Writer)
                     
                     System.out.println(newEmp.Salary());
                 }
                 break;
             default:
-                //Last case, user doen not insert 1 or 2.
+                //Last case, user does not insert 1 or 2.
                 System.out.println("Please enter the numbers 1 or 2 which reffers to your rype of user!");
                 break;       
         }
