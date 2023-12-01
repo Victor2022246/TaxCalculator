@@ -8,6 +8,6 @@ package taxcalculator;
  *
  * @author victor pc
  */
-public interface Administration {
+public interface Administration extends DatabaseReader {
     
 }
