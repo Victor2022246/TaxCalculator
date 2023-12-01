@@ -8,7 +8,7 @@ package taxcalculator;
  *
  * @author sande
  */
-public class Admin {
+public class Admin extends DatabaseReader {
     
     private String firstName;
     private String surName;
@@ -45,6 +45,12 @@ public class Admin {
         this.age = age;
     }
     
+    public void readAlldata(){
     
+    DatabaseReader dbr = new DatabaseReader();
+    
+    
+    
+    }
     
 }
