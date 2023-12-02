@@ -35,11 +35,14 @@ public class DatabaseSetup extends Database {
                 + "name VARCHAR(255),"
                 + "surname VARCHAR(300),"
                 + "grossSalary DOUBLE(10,2),"
+                + "TaxCredit DOUBLE(10,2),"
                 + "PAYE DOUBLE(10,2),"
                 + "USC DOUBLE(10,2),"
                 + "PRSI DOUBLE(10,2),"
                 + "TotalOwe DOUBLE(10,2),"
-                + "netSalary DOUBLE(10,2)"
+                + "netSalary DOUBLE(10,2),"
+                + "username VARCHAR(255),"
+                + "password VARCHAR(255)"
                 +  ");";
         stmt.execute(sql);
         return true;//If connection is successfull, return true            

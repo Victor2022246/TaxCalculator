@@ -81,11 +81,6 @@ public class DatabaseReader extends Database{
         Employee emp = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
          
          allEmployees.add(emp);
-                 
-                 
-         
-         
-         
          }
          
            

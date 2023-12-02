@@ -17,6 +17,9 @@ public class Employee extends TaxFees{
     private double netSalary;
     private double totalOwe;
     private double over = grossSalary-40000;
+    private double taxCredit;
+    private String username;
+    private String password;
     private static int currentID=1;
     private double prsi=grossSalary * 0.03;
     private double usc = grossSalary* 0.05;
@@ -38,10 +41,13 @@ public class Employee extends TaxFees{
     }
     
     
-     public Employee(String name, String surname, double grossSalary) {
+     public Employee(String name, String surname, double grossSalary, double taxCredit, String username, String password) {
         this.name = name;
         this.surname = surname;
         this.grossSalary = grossSalary;
+        this.taxCredit = taxCredit;
+        this.username = username;
+        this.password = password;
         if(over<0){
             this.PAYE=PAYE20;
         }else{
@@ -51,15 +57,7 @@ public class Employee extends TaxFees{
         this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
-    
-    
-    
-    
-    
      }
-    
-    
-
     public String getName() {
         return name;
     }
@@ -108,6 +106,20 @@ public class Employee extends TaxFees{
     public static void setCurrentID(int currentID) {
         Employee.currentID = currentID;
     }
+
+    public double getTaxCredit() {
+        return taxCredit;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
+    
        
     //Method to show the Taxes' deductions
     public String Salary(){

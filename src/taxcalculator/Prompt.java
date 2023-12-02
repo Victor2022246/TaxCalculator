@@ -107,7 +107,11 @@ public class Prompt {
                     //In case both dont match, user will have to type again
                     System.out.println("Your passwords don't match. Please try again!");
                 }
-                
+                    //Asking for user's Username and password
+                    System.out.println("Please insert your Username:");
+                    String userNameUser = mykb.nextLine();
+                    System.out.println("Now your password, please:");
+                    String userPassword = mykb.nextLine();
                     //Asking for his name. This will be updated on the table
                     System.out.println("Now please Insert your Name: ");
                     String newName = mykb.nextLine();//Receiving input
@@ -119,8 +123,12 @@ public class Prompt {
                     
                     System.out.println("Now please insert your Gross Salary: ");//Asking for GrossSalary
                     double grossSalaryUser = mykb.nextFloat();//Receiving Input
-                    mykb.nextLine();//Just breaking the input so it won't crash       
-                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser);//creating a new object of this new Empoyee                           
+                    mykb.nextLine();//Just breaking the input so it won't crash 
+                    
+                    System.out.println("Now your TAX Credit:");
+                    double taxCreditUser = mykb.nextFloat();
+                    mykb.nextLine();
+                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser, taxCreditUser, userNameUser, userPassword);//creating a new object of this new Empoyee                           
                   
                     DatabaseReader dbReader = new DatabaseReader();
                     int lastEmployeeID = dbReader.getLastEmployeeID();
