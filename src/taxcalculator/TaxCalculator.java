@@ -41,7 +41,7 @@ public class TaxCalculator {
 
         Prompt p1 = new Prompt();
         p1.Welcome();
-       2 p1.UserValidation();
+        p1.UserValidation();
         
 
 //        

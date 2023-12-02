@@ -38,18 +38,22 @@ public class DatabaseReader extends Database{
         return 0;//If no employeeID is found
     }
     //Method that will check for username and password
-     public boolean checkUserCredentials(String userName, String password){
+     public int checkUserCredentials(String userName, String password) throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             
-            String sq1 = String.format("SELECT * FROM %s WHERE username='%s' AND password='%s';", TABLE_NAME, userName, password)
+            String sq1 = String.format("SELECT * FROM %s WHERE username='%s' AND password='%s';", TABLE_NAME, userName, password);
             ResultSet resultSet = stmt.executeQuery(sq1);
+            int ID;
+            int getId =resultSet.getInt("employeeID");
             
+           
+             return getId;//If no employeeID is found
         }catch (Exception e){
             e.printStackTrace();//Output exception
             throw e;
         }
-        return 0;//If no employeeID is found
+            
     }
     
     
