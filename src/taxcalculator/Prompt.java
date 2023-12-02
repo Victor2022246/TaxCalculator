@@ -33,9 +33,10 @@ public class Prompt {
         //Displaying welcome message
         System.out.println("Hi!! Welcome to the TAX calculator!\n"
                 + "Please, provide your credentials!\n"
-                + "Are you an Administrator or a User?\n"
+                + "Are you an Administrator, User or would you like to Register?\n"
                 + "1.Administrator\n"
-                + "2.User");
+                + "2.User\n"
+                + "3. Register");
         
     }  
     //Method that will validate the user credentials
@@ -76,7 +77,22 @@ public class Prompt {
                 }
                 }
                 break;
-            case 2:
+                //Case user inputs 2 for a User
+                case 2:
+                //Asking for username
+                System.out.println("Please enter your credentials.");
+                System.out.println("USERNAME:");
+                //Collecting user's input
+                String userName = mykb.nextLine();
+                //Asking for password
+                System.out.println("PASSWORD:");
+                //Collecting user's input
+                String password = mykb.nextLine();
+                //In case user types cct lower case it will be transffered to UpCase (TO avoid misspealings)
+                userName = userName.toUpperCase();
+                
+                break;
+            case 3:
                 //Boolea in case password does not match.
                 boolean passwordMatches = false;
                 

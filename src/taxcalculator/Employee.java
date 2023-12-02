@@ -46,7 +46,7 @@ public class Employee extends TaxFees{
         this.surname = surname;
         this.grossSalary = grossSalary;
         this.taxCredit = taxCredit;
-        this.username = username;
+        this.username = username.toUpperCase();
         this.password = password;
         if(over<0){
             this.PAYE=PAYE20;
@@ -112,7 +112,7 @@ public class Employee extends TaxFees{
     }
 
     public String getUsername() {
-        return username;
+        return username.toUpperCase();
     }
 
     public String getPassword() {
