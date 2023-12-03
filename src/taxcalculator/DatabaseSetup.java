@@ -12,10 +12,18 @@ import java.sql.Statement;
 /**
  *
  * @author victor pc
+ * DatabaseSetup is responsible for setting up the necessary schema
  */
 public class DatabaseSetup extends Database {
      
-    //Method to connnect to the Database
+    /**
+     * Method that will connect our database, creating a schema and writing a new Table
+     * @return A database connection and a new table created
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     * @throws InstantiationException
+     * @throws IllegalAccessException 
+     */
     public static boolean setupDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         
@@ -24,7 +32,7 @@ public class DatabaseSetup extends Database {
     try(Connection conn= DriverManager.getConnection(DB_BASE_URL, USER,PASSWORD);
     Statement stmt = conn.createStatement();
     ){   
-        // Statement method  execute to wright inside mysql data base 
+        // Statement method  execute to write inside mysql data base 
         stmt.execute("CREATE DATABASE IF NOT EXISTS "+ DB_NAME + ";");// Creating the data base 
         stmt.execute("USE "+ DB_NAME + ";");// select the data base to use 
         
