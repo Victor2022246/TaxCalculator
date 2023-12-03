@@ -100,6 +100,7 @@ public class Prompt {
                     System.out.println("Login Successful!");
                     RegularUser regularUser = new RegularUser(userName, password);
                     regularUser.viewDetails();
+                    validCredentials = true;
                 }else{
                     
                     System.out.println("Invalid credentials. Please try again!");
@@ -130,7 +131,7 @@ public class Prompt {
                 String passwordStudent2 = mykb.nextLine();
                 //If both passwords matche
                 if(passwordStudent.equals(passwordStudent2)){
-                    System.out.println("WElcome " + userStudent + "You are now signed up!");
+                    System.out.println("WElcome " + userStudent + "You are now Registered!");
                  
                     passwordMatches=true;
                 }else{
