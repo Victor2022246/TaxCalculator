@@ -41,9 +41,9 @@ public class DatabaseWriter extends Database{
                   return false;
     }
     }
-    public boolean addAllEmployee(List<Employee> employeeList){
-        return true;
-}
+//    public boolean addAllEmployee(List<Employee> employeeList){
+//        return true;
+//}
     /**
      * Update a specif field in our DB's table
      * @param userName The username of the employee requesting the update
@@ -59,14 +59,15 @@ public class DatabaseWriter extends Database{
             //Declaring the variable outisde so can be used later on
             String sql;
                     if (newValue instanceof String){
+                        //Temporary seting the value of the table to a String, adding a new string
                         sql = String.format("UPDATE %s SET %s='%s' WHERE username='%s';", TABLE_NAME, field, newValue, userName);
-                                }else{
+                                }else{//In case the value is not a string, temporary make it a string and than convert back
                         sql = String.format("UPDATE %s SET %s=%s WHERE username='%s';", TABLE_NAME, field, newValue, userName);
                     }
-                    stmt.execute(sql);
+                    stmt.execute(sql);//Execute the query above
                     return true;
     }catch(Exception e){
-        e.printStackTrace();
+        e.printStackTrace();//throw error and return false.
                   return false;
     }
     }
