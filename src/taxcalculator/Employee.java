@@ -58,6 +58,22 @@ public class Employee extends TaxFees{
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
      }
+     //This new constructor will be used on the database reader to retrieve user's info
+      public Employee(String name, String surname, double grossSalary, double taxCredit, double PAYE, double  USC, double PRSI, double totalOwe, double netSalary) {
+        this.name = name;
+        this.surname = surname;
+        this.grossSalary = grossSalary;
+        this.taxCredit = taxCredit;
+        if(over<0){
+            this.PAYE=PAYE20;
+        }else{
+        this.PAYE=((grossSalary-over)*0.2)+(over*0.4);
+        }
+        this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
+        this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
+        this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
+        currentID++;//Increasing one everytime we create an employee
+     }
     public String getName() {
         return name;
     }
