@@ -7,7 +7,6 @@ package taxcalculator;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import static taxcalculator.Employee.getCurrentID;
 
 /**
  *
@@ -37,7 +36,7 @@ public class Prompt {
                 + "Are you an Administrator, User or would you like to Register?\n"
                 + "1.Administrator\n"
                 + "2.User\n"
-                + "3. Register");
+                + "3.Register");
         
     }  
     //Method that will validate the user credentials
