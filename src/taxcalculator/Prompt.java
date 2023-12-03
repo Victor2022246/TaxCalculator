@@ -11,8 +11,9 @@ import java.util.Scanner;
 /**
  *
  * @author sande
+ * Will carry most of the prompts we will use on our program
+ * So we can make our main method cleaner
  */
-//Creating prompt which will ask for User's input
 public class Prompt {
     
     //Declaring possible variables
@@ -28,7 +29,9 @@ public class Prompt {
     //Adding scanner to get users input
     Scanner mykb = new Scanner(System.in);
     
-    //Method that will display the welcome message 
+    /**
+     * Displays the Welcome message
+     */
     public void Welcome(){
         //Displaying welcome message
         System.out.println("Hi!! Welcome to the TAX calculator!\n"
@@ -39,16 +42,22 @@ public class Prompt {
                 + "3.Register");
         
     }  
-    //Method that will validate the user credentials
+    /**
+     * Will get user option from previous display
+     * @throws SQLException
+     * @throws Exception 
+     */
     public void UserValidation() throws SQLException, Exception{
         //Getting what user inputs on the keyboard
             int typeOfUser = mykb.nextInt();
             //To be sure that the newLine character is consumed, a nextLine method is added.
-            mykb.nextLine();
-            
+            mykb.nextLine();       
             //Starting the Switch statement
         switch (typeOfUser) {
-            //User types number 1, he will input ADMins credentials
+            /**
+             * Will receive user's input for Admin credentials
+             * Return true and grants login if the right credentials are inputted, false and ask again for credentials if otherwise
+             */
             case 1:
                 //Declaring a boolean variable in case user is an Admin, to make our loop
                 boolean isAdmin = false;
@@ -63,8 +72,6 @@ public class Prompt {
                 System.out.println("PASSWORD:");
                 //Collecting user's input
                 String password = mykb.nextLine();
-                //In case user types cct lower case it will be transffered to UpCase (TO avoid misspealings)
-                userName = userName.toUpperCase();
                 //If Statement if the userName and password matches with the Admin credentials
                 if("CCT".equals(userName)&&"Dublin".equalsIgnoreCase(password)){
                     System.out.println("Welcomee CCT Adminsitrator!!!");
@@ -77,9 +84,13 @@ public class Prompt {
                 }
                 }
                 break;
-                //Case user inputs 2 for a User
+                
+                /**
+                 * Will receive Regular User credentials and if matches within our database, will grant access
+                 * Return True and grant access if right credentials, false otherwise
+                 */
                 case 2:
-                    //If the crentials are not valid
+                //If the crentials are not valid
                 boolean validCredentials = false;//Boolean to help woth the loop process
                 //Loop the login section in case valid credentials is not true.
                 while(!validCredentials){
@@ -91,25 +102,27 @@ public class Prompt {
                 //Asking for password
                 System.out.println("PASSWORD:");
                 //Collecting user's input
-                String password = mykb.nextLine();
-                //In case user types cct lower case it will be transffered to UpCase (TO avoid misspealings)
-                userName = userName.toUpperCase();
-                
+                String password = mykb.nextLine();     
                 //Checking if provided username and password existin in the database
+                //Calling our dbreader method
                 if(dbReader.checkUserCredentials(userName, password)){
-                    System.out.println("Login Successful!");
-                    RegularUser regularUser = new RegularUser(userName, password);
-                    regularUser.viewDetails();
-                    regularUser.regularUserInfo();
+                    System.out.println("Login Successful!");//output login successfull
+                    RegularUser regularUser = new RegularUser(userName, password);//Instiating RegularUser class
+                    regularUser.viewDetails();//Calling method that will display user's menu
+                    regularUser.regularUserInfo();//Calling method that will edit the information the user decides
                     validCredentials = true;//Will stop loop if credentials are true
                 }else{
                     
-                    System.out.println("Invalid credentials. Please try again!");
+                    System.out.println("Invalid credentials. Please try again!");//Case credentials are not found on our DB
                 }
                 }
                 break;
+                
+                /**
+                 * Last case, will receive new Users data and write in our db
+                 */
             case 3:
-                //Boolea in case password does not match.
+                //Boolean in case password does not match.
                 boolean passwordMatches = false;
                 
                 //Prompt asking for user's credentials
@@ -130,7 +143,7 @@ public class Prompt {
                 System.out.println("Please enter your password again:");
                 //Collecting second password's input
                 String passwordStudent2 = mykb.nextLine();
-                //If both passwords matche
+                //If both passwords matches
                 if(passwordStudent.equals(passwordStudent2)){
                     System.out.println("WElcome " + userStudent + "You are now Registered!");
                  
@@ -151,23 +164,23 @@ public class Prompt {
                     
                     System.out.println("Now please insert your Gross Salary: ");//Asking for GrossSalary
                     double grossSalaryUser = mykb.nextFloat();//Receiving Input
-                    mykb.nextLine();//Just breaking the input so it won't crash 
+                    mykb.nextLine();//Just consumming the input request 
                     
-                    System.out.println("Now your TAX Credit:");
-                    double taxCreditUser = mykb.nextFloat();
-                    mykb.nextLine();
+                    System.out.println("Now your TAX Credit:");//Asking for Tax credit
+                    double taxCreditUser = mykb.nextFloat();//Collecting input
+                    mykb.nextLine();//Consuming the input request
+                    //Creating a new Employee with the parameters needed in our DB
                     Employee newEmp = new Employee(newName, newSurname, grossSalaryUser, taxCreditUser, userStudent, passwordStudent);//creating a new object of this new Empoyee                           
-                  
-              
+                    //Collecting last employee ID information from our Reader method
                     int lastEmployeeID = dbReader.getLastEmployeeID();
-                    newEmp.setEmployeeID(lastEmployeeID+1);
+                    newEmp.setEmployeeID(lastEmployeeID+1);//Setting the new employee with lastID+1
                     DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer 
                     dbw.addEmployee(newEmp);//Adding into our table(Writer)
-                    
+                    //Outputting the salary method (table informations)
                     System.out.println(newEmp.Salary());
-                    
+                    //Instantiating our RegularUser class
                     RegularUser regularUser = new RegularUser(userName, password);
-                    regularUser.regularUserInfo();
+                    regularUser.regularUserInfo();//calling method that will ask what user wants to change
                 }
                 break;
             default:
