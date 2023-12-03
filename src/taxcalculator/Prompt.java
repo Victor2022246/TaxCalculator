@@ -22,6 +22,7 @@ public class Prompt {
     private int typeOfUser;
     //Declaring an Array List, where the user's will be stored
     private ArrayList<String> usersArray = new ArrayList<>();
+    DatabaseReader dbReader = new DatabaseReader();
     
 
     
@@ -79,6 +80,10 @@ public class Prompt {
                 break;
                 //Case user inputs 2 for a User
                 case 2:
+                    //If the crentials are not valid
+                boolean validCredentials = false;//Boolean to help woth the loop process
+                //Loop the login section in case valid credentials is not true.
+                while(!validCredentials){
                 //Asking for username
                 System.out.println("Please enter your credentials.");
                 System.out.println("USERNAME:");
@@ -91,6 +96,14 @@ public class Prompt {
                 //In case user types cct lower case it will be transffered to UpCase (TO avoid misspealings)
                 userName = userName.toUpperCase();
                 
+                //Checking if provided username and password existin in the database
+                if(dbReader.checkUserCredentials(userName, password)){
+                    System.out.println("Login Successful!");
+                }else{
+                    
+                    System.out.println("Invalid credentials. Please try again!");
+                }
+                }
                 break;
             case 3:
                 //Boolea in case password does not match.
@@ -146,7 +159,7 @@ public class Prompt {
                     mykb.nextLine();
                     Employee newEmp = new Employee(newName, newSurname, grossSalaryUser, taxCreditUser, userNameUser, userPassword);//creating a new object of this new Empoyee                           
                   
-                    DatabaseReader dbReader = new DatabaseReader();
+              
                     int lastEmployeeID = dbReader.getLastEmployeeID();
                     newEmp.setEmployeeID(lastEmployeeID+1);
                     DatabaseWriter dbw = new DatabaseWriter(); //Initialiazing the Writer 
