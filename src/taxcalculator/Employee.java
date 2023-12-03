@@ -49,9 +49,9 @@ public class Employee extends TaxFees{
         this.username = username.toUpperCase();
         this.password = password;
         if(over<0){
-            this.PAYE=PAYE20;
+            PAYE=PAYE20;
         }else{
-        this.PAYE=((grossSalary-over)*0.2)+(over*0.4);
+            PAYE=((grossSalary-over)*0.2)+(over*0.4);
         }
         this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
         this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
@@ -99,7 +99,7 @@ public class Employee extends TaxFees{
     }
 
     public double getPAYE() {
-        return grossSalary*PAYE;
+        return PAYE;
     }
 
     public double getUSC() {
@@ -133,15 +133,12 @@ public class Employee extends TaxFees{
 
     public String getPassword() {
         return password;
-    }
-    
-    
-       
+    }     
     //Method to show the Taxes' deductions
     public String Salary(){
         System.out.println("Hello " + name );
         System.out.println("Gross Salary: " + grossSalary + " €");
-        System.out.println("TAX PAYE: "+ PAYE + " €");
+        System.out.println("TAX PAYE: "+ grossSalary*PAYE + " €");
         System.out.println("TAX USC: " + grossSalary*USC + " €");
         System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
         System.out.println("Total Owe: " + totalOwe + " €");

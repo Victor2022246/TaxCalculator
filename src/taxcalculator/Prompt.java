@@ -131,13 +131,14 @@ public class Prompt {
                 System.out.println("Frst, enter your USERNAME");
                 //Storing user's username
                 String userStudent = mykb.nextLine();
+                String passwordStudent = "";//declaring so I can use on my new employee
                 //While passwordmatches not true(true in this case)
                 //Keep asking for password, until both matches
                 while(!passwordMatches){
                 //Prompt requestin password
                 System.out.println("Now enter your PASSWORD:");
                 //Collecting password
-                String passwordStudent = mykb.nextLine();
+                passwordStudent = mykb.nextLine();
                 //Adding any new users into our array
                 usersArray.add(userStudent);
                 //Asking to input password again
@@ -146,14 +147,14 @@ public class Prompt {
                 String passwordStudent2 = mykb.nextLine();
                 //If both passwords matches
                 if(passwordStudent.equals(passwordStudent2)){
-                    System.out.println("WElcome " + userStudent + "You are now Registered!");
-                 
+                    System.out.println("Welcome " + userStudent + " You are now Registered!");
+                    System.out.println("-------------------------------------------------");
                     passwordMatches=true;
                 }else{
                     //In case both dont match, user will have to type again
                     System.out.println("Your passwords don't match. Please try again!");
                 }
-                   
+                }                  
                     //Asking for his name. This will be updated on the table
                     System.out.println("Now please Insert your Name: ");
                     String newName = mykb.nextLine();//Receiving input
@@ -182,7 +183,7 @@ public class Prompt {
                     //Instantiating our RegularUser class
                     RegularUser regularUser = new RegularUser(userName, password);
                     regularUser.regularUserInfo();//calling method that will ask what user wants to change
-                }
+                
                 break;
             default:
                 //Last case, user does not insert 1 or 2.
