@@ -64,8 +64,11 @@ public class DatabaseReader extends Database{
                 resultSet.getString("surname"),
                 resultSet.getDouble("grossSalary"),
                 resultSet.getDouble("taxCredit"),
-                resultSet.getString("username"),
-                resultSet.getString("password")
+                resultSet.getDouble("PAYE"),
+                resultSet.getDouble("USC"),
+                resultSet.getDouble("PRSI"),
+                resultSet.getDouble("totalOwe"),
+                resultSet.getDouble("netSalary")          
                 );
             }
         }catch (Exception e){
@@ -74,6 +77,7 @@ public class DatabaseReader extends Database{
         } 
             return null;        
      }
+          
     //Method that will check for username and password
      public int checkUserID(String userName, String password) throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);

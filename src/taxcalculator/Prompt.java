@@ -98,6 +98,8 @@ public class Prompt {
                 //Checking if provided username and password existin in the database
                 if(dbReader.checkUserCredentials(userName, password)){
                     System.out.println("Login Successful!");
+                    RegularUser regularUser = new RegularUser(userName, password);
+                    regularUser.viewDetails();
                 }else{
                     
                     System.out.println("Invalid credentials. Please try again!");
