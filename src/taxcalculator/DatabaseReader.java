@@ -50,8 +50,30 @@ public class DatabaseReader extends Database{
             e.printStackTrace();//Output exception
             return false;
         }         
+     }  
+          public Employee getEmployeeData(String userName, String password) throws Exception{
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+                Statement stmt = conn.createStatement()){
+            //Query to check if the provided username and password exists in our DB 
+            String sq1 = String.format("SELECT * FROM %s WHERE username='%s' AND password='%s';", TABLE_NAME, userName, password);
+            ResultSet resultSet = stmt.executeQuery(sq1);
+            //Check if there are any results
+            if(resultSet.next()){
+                return new Employee(
+                resultSet.getString("name"),
+                resultSet.getString("surname"),
+                resultSet.getDouble("grossSalary"),
+                resultSet.getDouble("taxCredit"),
+                resultSet.getString("username"),
+                resultSet.getString("password")
+                );
+            }
+        }catch (Exception e){
+            e.printStackTrace();//Output exception
+            
+        } 
+            return null;        
      }
-    
     //Method that will check for username and password
      public int checkUserID(String userName, String password) throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
