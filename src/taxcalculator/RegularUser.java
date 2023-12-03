@@ -46,6 +46,8 @@ public class RegularUser {
     
     public void regularUserInfo(){
         
+        int choice;
+        do{
         System.out.println("Would you like to change any information:\n"
                 + "1.Name\n"
                 + "2.Surname\n"
@@ -57,7 +59,7 @@ public class RegularUser {
         Scanner sc = new Scanner(System.in);
         DatabaseWriter dbWriter = new DatabaseWriter();
         
-        int choice = sc.nextInt();
+        choice = sc.nextInt();
         sc.nextLine();//Cleaning input request
         
         switch(choice){
@@ -101,6 +103,6 @@ public class RegularUser {
                 System.out.println("Invalid choice, please pick an option between 1 and 6.");
                 break;
         }
-    }
-    
+    }while(choice<1||choice>6);
+        } 
 }
