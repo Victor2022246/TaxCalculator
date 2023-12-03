@@ -100,6 +100,7 @@ public class Prompt {
                     System.out.println("Login Successful!");
                     RegularUser regularUser = new RegularUser(userName, password);
                     regularUser.viewDetails();
+                    regularUser.regularUserInfo();
                     validCredentials = true;//Will stop loop if credentials are true
                 }else{
                     
@@ -164,6 +165,9 @@ public class Prompt {
                     dbw.addEmployee(newEmp);//Adding into our table(Writer)
                     
                     System.out.println(newEmp.Salary());
+                    
+                    RegularUser regularUser = new RegularUser(userName, password);
+                    regularUser.regularUserInfo();
                 }
                 break;
             default:
