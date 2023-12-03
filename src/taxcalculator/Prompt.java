@@ -107,6 +107,7 @@ public class Prompt {
                 //Calling our dbreader method
                 if(dbReader.checkUserCredentials(userName, password)){
                     System.out.println("Login Successful!");//output login successfull
+                     System.out.println("------------------------------------------");
                     RegularUser regularUser = new RegularUser(userName, password);//Instiating RegularUser class
                     regularUser.viewDetails();//Calling method that will display user's menu
                     regularUser.regularUserInfo();//Calling method that will edit the information the user decides
@@ -186,7 +187,7 @@ public class Prompt {
             default:
                 //Last case, user does not insert 1 or 2.
                 System.out.println("Please enter the numbers 1 or 2 which reffers to your rype of user!");
-                break;       
+                break;
         }
         }
     //Method to get the Array of userNames

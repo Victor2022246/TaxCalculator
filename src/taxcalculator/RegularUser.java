@@ -54,6 +54,7 @@ public class RegularUser {
         //User option will be stored in choice
         int choice;
         do{//User's menu
+        System.out.println("------------------------------------------");
         System.out.println("Would you like to change any information:\n"
                 + "1.Name\n"
                 + "2.Surname\n"
