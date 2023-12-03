@@ -9,23 +9,29 @@ import java.util.Scanner;
 /**
  *
  * @author sande
+ * Will set what our regular user can do
  */
 public class RegularUser {
-    
+    //Declaring the variables needed to identify the user
     private String userName;
     private String password;
     
+    //Constructor with parameters to be used in our methods
     public RegularUser(String userName, String password){
-        this.userName = userName.toUpperCase();
+        this.userName = userName;
         this.password = password;
     }
-    
+    /**
+     * Method that will call our reader and reads user's info
+     * @Return user's information stored in the DB
+     */
     public void viewDetails(){
         try {
+            //Instantiating our Reader
             DatabaseReader dbReader = new DatabaseReader();
-            Employee employee = dbReader.getEmployeeData(userName, password);
-            
-            if(employee !=null){
+            //Calling the method
+            Employee employee = dbReader.getEmployeeData(userName, password);       
+            if(employee !=null){//if employee exists
                 System.out.println("Employee Details: ");
                 System.out.println("Name: " + employee.getName());
                 System.out.println("Surname: " + employee.getSurname());
@@ -41,13 +47,13 @@ public class RegularUser {
             e.printStackTrace();
         }
     }
-    
-    //Regular user data is outputed
-    
+    /**
+     * After user's data is outputted, user will choose if wants to edit any
+     */
     public void regularUserInfo(){
-        
+        //User option will be stored in choice
         int choice;
-        do{
+        do{//User's menu
         System.out.println("Would you like to change any information:\n"
                 + "1.Name\n"
                 + "2.Surname\n"
@@ -55,13 +61,16 @@ public class RegularUser {
                 + "4.TaxCredit\n"
                 + "5.Username\n"
                 + "6.Password");
-        
+        //Instantiating our scanner
         Scanner sc = new Scanner(System.in);
+        //Instantiating our Writer
         DatabaseWriter dbWriter = new DatabaseWriter();
-        
+        //Collecting user's input
         choice = sc.nextInt();
         sc.nextLine();//Cleaning input request
-        
+        //For the many options below, user will be asked for a new information
+        //Depending each one he wants to change. After that, this new info will be stored
+        //Replacing the old one
         switch(choice){
             case 1:
                 System.out.println("Enter new name: ");
@@ -109,6 +118,6 @@ public class RegularUser {
                 System.out.println("Invalid choice, please pick an option between 1 and 6.");
                 break;
         }
-    }while(choice<1||choice>6);
+    }while(choice<1||choice>6);//In case user inputs invalid numbers or letters
         } 
 }
