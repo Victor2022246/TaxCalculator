@@ -100,7 +100,7 @@ public class Prompt {
                     System.out.println("Login Successful!");
                     RegularUser regularUser = new RegularUser(userName, password);
                     regularUser.viewDetails();
-                    validCredentials = true;
+                    validCredentials = true;//Will stop loop if credentials are true
                 }else{
                     
                     System.out.println("Invalid credentials. Please try again!");
@@ -138,11 +138,7 @@ public class Prompt {
                     //In case both dont match, user will have to type again
                     System.out.println("Your passwords don't match. Please try again!");
                 }
-                    //Asking for user's Username and password
-                    System.out.println("Please insert your Username:");
-                    String userNameUser = mykb.nextLine();
-                    System.out.println("Now your password, please:");
-                    String userPassword = mykb.nextLine();
+                   
                     //Asking for his name. This will be updated on the table
                     System.out.println("Now please Insert your Name: ");
                     String newName = mykb.nextLine();//Receiving input
@@ -159,7 +155,7 @@ public class Prompt {
                     System.out.println("Now your TAX Credit:");
                     double taxCreditUser = mykb.nextFloat();
                     mykb.nextLine();
-                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser, taxCreditUser, userNameUser, userPassword);//creating a new object of this new Empoyee                           
+                    Employee newEmp = new Employee(newName, newSurname, grossSalaryUser, taxCreditUser, userStudent, passwordStudent);//creating a new object of this new Empoyee                           
                   
               
                     int lastEmployeeID = dbReader.getLastEmployeeID();

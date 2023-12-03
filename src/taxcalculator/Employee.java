@@ -141,7 +141,7 @@ public class Employee extends TaxFees{
     public String Salary(){
         System.out.println("Hello " + name );
         System.out.println("Gross Salary: " + grossSalary + " €");
-        System.out.println("TAX PAYE: "+ grossSalary*PAYE + " €");
+        System.out.println("TAX PAYE: "+ PAYE + " €");
         System.out.println("TAX USC: " + grossSalary*USC + " €");
         System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
         System.out.println("Total Owe: " + totalOwe + " €");
