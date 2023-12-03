@@ -13,18 +13,24 @@ import java.util.ArrayList;
 /**
  *
  * @author sande
+ * The DatabaseReader is responsible for reading inside our table
+ * Return desirable variable
  */
 public class DatabaseReader extends Database{
     
-    
+    //ArrayList to store Employee objects retrieved from the database
     ArrayList <Employee> allEmployees = new ArrayList<>();
     
     
-    //Method to get last employeeID
+    /**
+     * Reads the last Employee ID assigned
+     * @return last assigned employee ID
+     * @throws Exception in case an error occurs
+     */
     public int getLastEmployeeID() throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
-            
+            //String query to select the last employee id
             String sq1 = "SELECT MAX(employeeID) FROM " + TABLE_NAME;
             ResultSet resultSet = stmt.executeQuery(sq1);
             //Check if there are any results
@@ -35,9 +41,15 @@ public class DatabaseReader extends Database{
             e.printStackTrace();//Output exception
             throw e;
         }
-        return 0;//If no employeeID is found
+        return 0;//If no employeeID is found return 0.
     }
-        //Method that will check for username and password
+        /**
+         * Reads the column username and password, so we can confirm login
+         * @param userName 
+         * @param password
+         * @return true if the credentials are the same as stored in our database, false otherwise
+         * @throws Exception if any error occurs
+         */
      public boolean checkUserCredentials(String userName, String password) throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
@@ -51,6 +63,13 @@ public class DatabaseReader extends Database{
             return false;
         }         
      }  
+     /**
+      * Retrieves employee data based on the provided username and password
+      * @param userName userName of the user
+      * @param password password of the user
+      * @return all the not vital information (except username and password)
+      * @throws Exception if an error occurs.
+      */
           public Employee getEmployeeData(String userName, String password) throws Exception{
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
@@ -59,6 +78,8 @@ public class DatabaseReader extends Database{
             ResultSet resultSet = stmt.executeQuery(sq1);
             //Check if there are any results
             if(resultSet.next()){
+                //create and return a new Employee object with the retrieved data
+                //A new constructor was created in order to use below attributes 
                 return new Employee(
                 resultSet.getString("name"),
                 resultSet.getString("surname"),
