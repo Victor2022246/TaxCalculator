@@ -28,6 +28,8 @@ public class DatabaseReader extends Database{
      * @throws Exception in case an error occurs
      */
     public int getLastEmployeeID() throws Exception{
+        
+        // try a connection 
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             //String query to select the last employee id
@@ -158,7 +160,7 @@ public class DatabaseReader extends Database{
          double PRSI = results.getDouble("PRSI");
         Employee emp = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
          
-         allEmployees.add(emp);
+         allEmployees.add(emp); // 
          }
          
            
@@ -226,8 +228,10 @@ public class DatabaseReader extends Database{
           e.printStackTrace();
     
     
-     return null;
+     
     }
+        return null;
+        
     
     
     
