@@ -100,7 +100,11 @@ public class DatabaseReader extends Database{
         } 
             return null;        
      }
-          
+    
+          /**
+           * retrieves the data from all employees by looping through read the data base line by line, and stocking into a array list allEmployees
+           *throws Exception if an error occurs.
+           */
     
     
     
@@ -150,24 +154,7 @@ public class DatabaseReader extends Database{
          
            
          
-//         System.out.println(results.next());// select row 1
-//         
-//         
-//         // if(resusts.next == true)
-//         //while(results.next() == true)  reads while you have an other line 
-//         
-//         
-//         
-//         System.out.println(results.next());// select row 3
-//         System.out.println(results.next());// select row 4
-//         System.out.println(results.next());// select row 4
-//         
-//         
-//         // access the results read from the database, using the name of each colunm in the table as a parametes
-//         System.out.println(results.getString("name"));
-//         System.out.println(results.getString("ID"));
-//         
-         
+
          
       }catch (Exception e) {
           e.printStackTrace();
@@ -180,6 +167,11 @@ public class DatabaseReader extends Database{
     }
 }
     
+    /**
+     *  get the data  of all employee looking into the database with a filter of employeeID
+     * @param employeeID
+     * @return employee data, as properties of an object employee 
+     */
     public Employee getEmployeeData(int employeeID){
      try(Connection conn= DriverManager.getConnection(DB_URL, USER,PASSWORD);
     Statement stmt = conn.createStatement();
@@ -203,7 +195,8 @@ public class DatabaseReader extends Database{
           double totalOwe = results.getDouble("TotalOwe");
           double USC = results.getDouble("USC");
          double PRSI = results.getDouble("PRSI");
-        Employee employee = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
+         String username = results.getString("username");
+        Employee employee = new Employee(name, surname,grossSalary,id, PAYE, totalOwe, PRSI, USC,netSalary, username );
         
          return employee;
  
