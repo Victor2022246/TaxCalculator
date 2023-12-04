@@ -52,7 +52,7 @@ public class DatabaseReader extends Database{
          * @return true if the credentials are the same as stored in our database, false otherwise
          * @throws Exception if any error occurs
          */
-     public boolean checkUserCredentials(String userName, String password) throws Exception{
+     public boolean checkUserCredentials(String userName, String password) throws Exception{ // method copied from  get user ID
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             //Query to check if the provided username and password exists in our DB 
@@ -101,22 +101,7 @@ public class DatabaseReader extends Database{
             return null;        
      }
           
-    //Method that will check for username and password
-     public int checkUserID(String userName, String password) throws Exception{
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-                Statement stmt = conn.createStatement()){
-            
-            String sq1 = String.format("SELECT * FROM %s WHERE username='%s' AND password='%s';", TABLE_NAME, userName, password);
-            ResultSet resultSet = stmt.executeQuery(sq1);
-            int ID;
-            int getId =resultSet.getInt("employeeID");
-             return getId;//If no employeeID is found
-        }catch (Exception e){
-            e.printStackTrace();//Output exception
-            throw e;
-        }
-            
-    }
+    
     
     
     public void getAllData(){
