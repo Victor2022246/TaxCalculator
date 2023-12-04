@@ -19,12 +19,12 @@ public class TaxCalculator {
         // TODO code application logic here
   
         
-        //DATA BASE CONNECTION WAS SUCCESFULL
-//         if(DatabaseSetup.setupDB()){
-//            System.out.println("Database and Table created");
-//        }else{
-//            System.out.println("Oh no! There was a database creation problem...");
-//        }
+       // DATA BASE CONNECTION WAS SUCCESFULL
+         if(DatabaseSetup.setupDB()){
+            System.out.println("Database and Table created");
+        }else{
+            System.out.println("Oh no! There was a database creation problem...");
+        }
         
 
         Prompt p1 = new Prompt();
