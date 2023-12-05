@@ -24,13 +24,13 @@ public class TaxCalculator {
         // TODO code application logic here
   
 
-        //DATA BASE AND TABLE CREATION
-         if(DatabaseSetup.setupDB()){
-            System.out.println("Database and Table created");
-        }else{
-            System.out.println("Oh no! There was a database creation problem...");
-        }
-         
+//        //DATA BASE AND TABLE CREATION
+//         if(DatabaseSetup.setupDB()){
+//            System.out.println("Database and Table created");
+//        }else{
+//            System.out.println("Oh no! There was a database creation problem...");
+//        }
+//         
 //        Employee adm = new Employee("Marcelo", "Almeida",80000, 1750,"CCT", "Dublin" );
 //        Employee emp1 = new Employee("Sander", "Soares", 10000, 12000, "Sansan", "9876");
 //        Employee emp2 = new Employee("Victor", "Oliveira", 50000, 12000, "vic" , "vic123");

@@ -19,7 +19,8 @@ public class Admin {
     DatabaseWriter dbw = new DatabaseWriter();
    
     public void adminMenu() throws Exception{
-        
+        //Looping the process until Amdin hits option 5
+       do{ 
         System.out.println("What would you like to do? \n"
                 + "1.Change youw own information\n"
                 + "2. Access list of users\n"
@@ -70,6 +71,11 @@ public class Admin {
             case 5:
                 System.out.println("Program Closed!!!");
                 break;
+                
+            default:
+                System.out.println("Invalid choice, please pick an option between 1 and 5.");
         
+    }
+       }while(choice!=5);//Program will loop until choices are different than 5
     }
 }

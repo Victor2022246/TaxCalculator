@@ -61,7 +61,8 @@ public class RegularUser {
                 + "3.Gross salary\n"
                 + "4.TaxCredit\n"
                 + "5.Username\n"
-                + "6.Password");
+                + "6.Password\n"
+                + "7. No, Closes the program.");
         //Instantiating our scanner
         Scanner sc = new Scanner(System.in);
         //Instantiating our Writer
@@ -115,10 +116,13 @@ public class RegularUser {
                 System.out.println("Password has been updated!");
                 break;
                 
+            case 7:
+                System.out.println("Program Closed!!!");
+                
             default:
                 System.out.println("Invalid choice, please pick an option between 1 and 6.");
                 break;
         }
-    }while(choice<1||choice>6);//In case user inputs invalid numbers or letters
+    }while(choice!=7);//keeop looping until he enters 7
         } 
 }
