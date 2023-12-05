@@ -141,37 +141,9 @@ public class DatabaseReader extends Database{
         Employee emp = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
          
          allEmployees.add(emp);
-         }
-         
-           
-         
-//         System.out.println(results.next());// select row 1
-//         
-//         
-//         // if(resusts.next == true)
-//         //while(results.next() == true)  reads while you have an other line 
-//         
-//         
-//         
-//         System.out.println(results.next());// select row 3
-//         System.out.println(results.next());// select row 4
-//         System.out.println(results.next());// select row 4
-//         
-//         
-//         // access the results read from the database, using the name of each colunm in the table as a parametes
-//         System.out.println(results.getString("name"));
-//         System.out.println(results.getString("ID"));
-//         
-         
-         
+         }  
       }catch (Exception e) {
           e.printStackTrace();
-    
-    
-    
-    
-    
-    
     }
 }
     
