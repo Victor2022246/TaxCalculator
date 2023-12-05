@@ -121,50 +121,12 @@ public class DatabaseReader extends Database{
             System.out.println("PRSI: " + resultSet.getDouble("PRSI"));
             System.out.println("Total Owe: " + resultSet.getDouble("totalOwe"));
             System.out.println("Net Salary: " + resultSet.getDouble("netSalary"));
+            System.out.println("UserName: " + resultSet.getString("username"));
             System.out.println("-----------------------------");
          }  
       }catch (Exception e) {
           e.printStackTrace();
     }
+} 
 }
-    
-    public Employee getEmployeeData(int employeeID){
-     try(Connection conn= DriverManager.getConnection(DB_URL, USER,PASSWORD);
-    Statement stmt = conn.createStatement();
-    ){ 
-         
-      // object that stores de result of our query    
-       ResultSet results = stmt.executeQuery(String.format(
-               "SELECT * FROM %s WHERE id=%d;", TABLE_NAME, employeeID));
-      // results.next();
-         
-      System.out.println(results.getString("employeeID"));
-         System.out.println(results.getString("name"));
-         String name = results.getString("name");
-         System.out.println(results.getString("surname"));
-         String surname = results.getString("surname");
-         System.out.println(results.getString("grossSalary"));
-         double grossSalary = results.getDouble("grossSalary");
-         int id = results.getInt("employeeID");
-         double netSalary = results.getDouble("netSalary");
-          double PAYE = results.getDouble("PAYE");
-          double totalOwe = results.getDouble("TotalOwe");
-          double USC = results.getDouble("USC");
-         double PRSI = results.getDouble("PRSI");
-        Employee employee = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
-        
-         return employee;
- 
-         
-         
-      }catch (Exception e) {
-          e.printStackTrace();
-    
-    
-     return null;
-    }
-    
-    
-    
-}
-}
+
