@@ -9,6 +9,11 @@ import java.sql.SQLException;
 /**
  *
  * @author victor pc
+ * Group Member 1 Name: Sander Luiz Santos Soares
+ * Group Member 1 Student Number: 2022164
+ * Group Member 2 Name: Victor Oliveira
+ * Group Member 2 Student Number: 2022246
+ * GitHub Link:https://github.com/Victor2022246/TaxCalculator
  */
 public class TaxCalculator {
 
