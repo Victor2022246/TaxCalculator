@@ -15,6 +15,9 @@ import java.sql.Statement;
  * DatabaseSetup is responsible for setting up the necessary schema
  */
 public class DatabaseSetup extends Database {
+    //Declaring the boolean to work when database is already setup
+    //So if run the main class after the database has been already created, no error message will pop up
+    private static boolean isDatabaseSetupDone = false;
      
     /**
      * Method that will connect our database, creating a schema and writing a new Table
@@ -25,6 +28,10 @@ public class DatabaseSetup extends Database {
      * @throws IllegalAccessException 
      */
     public static boolean setupDB() throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException{
+        
+        if(isDatabaseSetupDone){
+            return true;//Skip setup if already done
+        }
         Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         
      // try and catch for trying create  a connection with the database  using the DriverManager, with the properties of the class data base as pharamentesr 
@@ -53,6 +60,8 @@ public class DatabaseSetup extends Database {
                 + "password VARCHAR(255)"
                 +  ");";
         stmt.execute(sql);
+        //Update to indicate setup has been done
+        isDatabaseSetupDone = true;
         return true;//If connection is successfull, return true            
     }catch (Exception e){//Otherwise return the catch and false
     e.printStackTrace();
