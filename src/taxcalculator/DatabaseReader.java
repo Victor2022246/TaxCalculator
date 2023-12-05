@@ -122,7 +122,7 @@ public class DatabaseReader extends Database{
             System.out.println("Total Owe: " + resultSet.getDouble("totalOwe"));
             System.out.println("Net Salary: " + resultSet.getDouble("netSalary"));
             System.out.println("UserName: " + resultSet.getString("username"));
-            System.out.println("-----------------------------");
+            System.out.println("----------------------------------------------------");
          }  
       }catch (Exception e) {
           e.printStackTrace();
