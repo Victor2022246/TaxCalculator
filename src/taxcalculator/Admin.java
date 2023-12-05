@@ -11,25 +11,34 @@ import java.util.Scanner;
  * @author sande
  */
 public class Admin {
+    private String userName = "CCT";
+    private String password = "Dublin";
     private int choice;
+    Scanner sc = new Scanner(System.in);
     DatabaseReader dbr = new DatabaseReader();
+    DatabaseWriter dbw = new DatabaseWriter();
    
-    public void adminMenu(){
+    public void adminMenu() throws Exception{
         
         System.out.println("What would you like to do? \n"
                 + "1.Change youw own information\n"
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
-                + "4. Review operations perfomed by users");
+                + "4. Review operations perfomed by users\n"
+                + "5. Finish");
         
-        Scanner sc = new Scanner(System.in);
+        
         
         choice = sc.nextInt();
         sc.nextLine();
         
          switch(choice){
-            case 1:
-                
+            case 1: 
+            //Calling the method that was alredy created in Regular user that will display
+            //All info based in login and password provided
+             RegularUser ru = new RegularUser("CCT", "Dublin");//Giving the parameters, once Admin username and password are just one
+                ru.viewDetails();//Displaying details
+                ru.regularUserInfo();//Editing whatever he wants
                 break;
                 
             case 2:
@@ -39,11 +48,27 @@ public class Admin {
                 break;
                 
             case 3:
+                System.out.println("Which user would you like to delete?\n"
+                        + "Please enter his/her EmployeeID and Press Enter");
                 
+                int deleteEmployee = sc.nextInt();
+                sc.nextLine();
+                
+                boolean delete = dbw.deleteEmployee(deleteEmployee);
+                
+                if (delete){
+                    System.out.println("Employee has been deleted!");
+                }else{
+                    System.out.println("Error Deleting employee. Please try again.");
+                }
                 break;
                 
             case 4:
                 
+                break;
+                
+            case 5:
+                System.out.println("Program Closed!!!");
                 break;
         
     }
