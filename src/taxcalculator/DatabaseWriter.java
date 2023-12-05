@@ -71,4 +71,24 @@ public class DatabaseWriter extends Database{
                   return false;
     }
     }
+    /**
+     * Delete anemployee from the database based on employeeID
+     * @param employeeID The employeeID of the employee to be deleted
+     * @return true if the deletion was completed, false otherwise
+     * @throws SQLException if there is any error
+     */
+    public boolean deleteEmployee(int employeeID){
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+                Statement stmt = conn.createStatement()){
+            
+            String sql = String.format("DELETE FROM %s WHERE employeeID=%d;", TABLE_NAME, employeeID);
+            
+            stmt.execute(sql);
+            
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
