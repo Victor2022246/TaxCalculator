@@ -99,48 +99,29 @@ public class DatabaseReader extends Database{
             return null;        
      }
          
-    public void getAllData(){
+    public void displayAllData(){
     
         
      try(Connection conn= DriverManager.getConnection(DB_URL, USER,PASSWORD);
-    Statement stmt = conn.createStatement();
+    Statement stmt = conn.createStatement()
     ){
-         /*
-         Exercise 
-        read each row
-         assign the data to a new Patient object
-         add the Patient to a list return list 
-         */
+       
+     String sql = "SELECT * FROM " + TABLE_NAME;
+     ResultSet resultSet = stmt.executeQuery(sql);
          
-         
-       int employeeID = 1;  
-         for(int i=0; i< getLastEmployeeID() ; i++){
-          employeeID++; 
-      // object that stores de result of our query    
-       ResultSet results = stmt.executeQuery(String.format(
-               "SELECT * FROM %s WHERE id=%d;", TABLE_NAME, employeeID));
-     // results is a curso/pointer to a particular row in the results
-         //once we are on the row we want, we can extract the data based on the
-         //colunm name
-         
-         
-            
-         System.out.println(results.getString("employeeID"));
-         System.out.println(results.getString("name"));
-         String name = results.getString("name");
-         System.out.println(results.getString("surname"));
-         String surname = results.getString("surname");
-         System.out.println(results.getString("grossSalary"));
-         double grossSalary = results.getDouble("grossSalary");
-         int id = results.getInt("employeeID");
-         double netSalary = results.getDouble("netSalary");
-          double PAYE = results.getDouble("PAYE");
-          double totalOwe = results.getDouble("TotalOwe");
-          double USC = results.getDouble("USC");
-         double PRSI = results.getDouble("PRSI");
-        Employee emp = new Employee(name, surname,grossSalary,id,PAYE, totalOwe, PRSI, USC,netSalary );
-         
-         allEmployees.add(emp);
+        //Loop though the result set and display each row    
+       while (resultSet.next()){
+            System.out.println("Employee ID: " + resultSet.getInt("employeeID"));
+            System.out.println("Name: " + resultSet.getString("name"));
+            System.out.println("Surname: " + resultSet.getString("surname"));
+            System.out.println("Gross Salary: " + resultSet.getDouble("grossSalary"));
+            System.out.println("Tax Credit: " + resultSet.getDouble("taxCredit"));
+            System.out.println("PAYE: " + resultSet.getDouble("PAYE"));
+            System.out.println("USC: " + resultSet.getDouble("USC"));
+            System.out.println("PRSI: " + resultSet.getDouble("PRSI"));
+            System.out.println("Total Owe: " + resultSet.getDouble("totalOwe"));
+            System.out.println("Net Salary: " + resultSet.getDouble("netSalary"));
+            System.out.println("-----------------------------");
          }  
       }catch (Exception e) {
           e.printStackTrace();
