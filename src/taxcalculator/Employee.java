@@ -126,7 +126,8 @@ public class Employee extends TaxFees{
     }     
     //Method to show the Taxes' deductions
     public String Salary(){
-        System.out.println("Hello " + name );
+        System.out.println("-------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("Hello " + name+"! This is your Salary calculation" );
         System.out.println("Gross Salary: " + grossSalary + " €");
         System.out.println("TaxCredit: " + taxCredit +" €");
         System.out.println("TAX PAYE: "+ PAYE + " €");
@@ -134,6 +135,7 @@ public class Employee extends TaxFees{
         System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
         System.out.println("Total Owe: " + totalOwe + " €");
         System.out.println("NET Salary = " + netSalary + " €");
+        System.out.println("-----------------------------------------------------------------------------------------------------------------------");
         System.out.println("The Calculation behind youe NetSalary is:\n"
                 + "(TaxableIncome = (Gross Salary-TaxCredit)\n"
                 + "(Tax PAYE = (TaxableIncome*20%|40%) (20% will be applied when Taxable Income<40000, otherwise the amount over 40000 is taxed 40%)\n"

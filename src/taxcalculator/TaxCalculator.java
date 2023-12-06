@@ -26,29 +26,31 @@ public class TaxCalculator {
 
 //        DATA BASE AND TABLE CREATION
 //        It will be created just oncce, Because it is define to create Only if not Exists
-         if(DatabaseSetup.setupDB()){
-            System.out.println("Database and Table created");
-        }else{
-            System.out.println("Oh no! There was a database creation problem...");
-        }
-         
-        Employee adm = new Employee("Marcelo", "Almeida",80000, 1750,"CCT", "Dublin" );
-        Employee emp1 = new Employee("Sander", "Soares", 10000, 12000, "Sansan", "9876");
-        Employee emp2 = new Employee("Victor", "Oliveira", 50000, 12000, "vic" , "vic123");
-        Employee emp3 = new Employee("Kevin", "Santos", 27000, 12000, "kevins", "keke123");
-        Employee emp4 = new Employee("Renato", "Ramos", 42000, 12000, "Rere", "Re123");
-        Employee emp5 = new Employee("Felipe", "Paiva", 39000, 12000, "Rere", "re123");
-//        
-        DatabaseWriter dbw = new DatabaseWriter();
-        dbw.addEmployee(adm);
-        dbw.addEmployee(emp1);
-        dbw.addEmployee(emp2);
-        dbw.addEmployee(emp3);
-        dbw.addEmployee(emp4);
-        dbw.addEmployee(emp5);
-//        Prompt p1 = new Prompt();
-//        p1.Welcome();
-//        p1.UserValidation();
+//         if(DatabaseSetup.setupDB()){
+//            System.out.println("Database and Table created");
+//        }else{
+//            System.out.println("Oh no! There was a database creation problem...");
+//        }
+//         
+//        Employee adm = new Employee("Marcelo", "Almeida",80000, 1750,"CCT", "Dublin" );
+//        Employee emp1 = new Employee("Sander", "Soares", 35000, 1750, "Sansan", "9876");
+//        Employee emp2 = new Employee("Victor", "Oliveira", 50000, 1750, "vic" , "vic123");
+//        Employee emp3 = new Employee("Kevin", "Santos", 96000, 1750, "kevins", "keke123");
+//        Employee emp4 = new Employee("Renato", "Ramos", 42000, 1750, "Rere", "Re123");
+//        Employee emp5 = new Employee("Felipe", "Paiva", 39000, 1750, "Rere", "re123");
+////        
+//        DatabaseWriter dbw = new DatabaseWriter();
+//        dbw.addEmployee(adm);
+//        dbw.addEmployee(emp1);
+//        dbw.addEmployee(emp2);
+//        dbw.addEmployee(emp3);
+//        dbw.addEmployee(emp4);
+//        dbw.addEmployee(emp5);
+
+//        emp5.Salary();
+        Prompt p1 = new Prompt();
+        p1.Welcome();
+        p1.UserValidation();
 
     }
 }

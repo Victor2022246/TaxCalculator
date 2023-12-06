@@ -50,7 +50,7 @@ public class RegularUser {
     /**
      * After user's data is outputted, user will choose if wants to edit any
      */
-    public void regularUserInfo(){
+    public void regularUserInfo() throws Exception{
         //User option will be stored in choice
         int choice;
         do{//User's menu
@@ -62,7 +62,9 @@ public class RegularUser {
                 + "4.TaxCredit\n"
                 + "5.Username\n"
                 + "6.Password\n"
-                + "7. No, Bring me BACK");
+                + "Or would you like to see your Salary calculation again:\n"
+                + "7. Salary\n"
+                + "8.LOGOUT and Finish!");
         //Instantiating our scanner
         Scanner sc = new Scanner(System.in);
         //Instantiating our Writer
@@ -117,9 +119,14 @@ public class RegularUser {
                 break;
                 
             case 7:
-                System.out.println("----------------------------------------------");
-                
+                DatabaseReader dbReader = new DatabaseReader();
+                Employee employee = dbReader.getEmployeeData(userName, password);
+                employee.Salary();
+                break;
+            case 8:
+                System.out.println("------------------------------------------------------------------");
+                System.out.println("Logged out!");
         }
-    }while(choice!=7);//keeop looping until he enters 7
+    }while(choice!=8);//keeop looping until he enters 7
         } 
 }

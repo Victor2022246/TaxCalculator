@@ -149,7 +149,8 @@ public class Prompt {
                 String passwordStudent2 = mykb.nextLine();
                 //If both passwords matches
                 if(passwordStudent.equals(passwordStudent2)){
-                    System.out.println("Welcome " + userStudent + " You are now Registered!");
+                    System.out.println("-------------------------------------------------");
+                    System.out.println("Welcome " + userStudent + "! You are now Registered!");
                     System.out.println("-------------------------------------------------");
                     passwordMatches=true;
                 }else{
