@@ -32,22 +32,31 @@ public class TaxCalculator {
             System.out.println("Oh no! There was a database creation problem...");
         }
          
+        //Creating 6 employee's objects, including one with ADM credentials
         Employee adm = new Employee("Marcelo", "Almeida",80000, 1750,"CCT", "Dublin" );
         Employee emp1 = new Employee("Sander", "Soares", 35000, 1750, "Sansan", "9876");
         Employee emp2 = new Employee("Victor", "Oliveira", 50000, 1750, "vic" , "vic123");
         Employee emp3 = new Employee("Kevin", "Santos", 96000, 1750, "kevins", "keke123");
         Employee emp4 = new Employee("Renato", "Ramos", 42000, 1750, "Rere", "Re123");
         Employee emp5 = new Employee("Felipe", "Paiva", 39000, 1750, "Rere", "re123");
-       
-        DatabaseWriter dbw = new DatabaseWriter(); 
+        
+       //Instantiating the DatabaseWriter so we can add them into the table
+        DatabaseWriter dbw = new DatabaseWriter();
+        //Adding each one of the employeed listed above
+        //A secondary method will check if they are already in the system. If that is true, they won't be added.
         dbw.addEmployee(adm);
         dbw.addEmployee(emp1);
         dbw.addEmployee(emp2);
         dbw.addEmployee(emp3);
         dbw.addEmployee(emp4);
         dbw.addEmployee(emp5);
+        
+        //Instantiating our Prompt Class
         Prompt p1 = new Prompt();
+        //calling the method which displays the MAIN MENU
         p1.Welcome();
+        //Calling method which is the main part of this code
+        //With all logins and validations inside of it
         p1.UserValidation();
 
     }
