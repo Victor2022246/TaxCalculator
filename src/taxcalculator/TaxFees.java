@@ -12,8 +12,6 @@ package taxcalculator;
 public abstract class TaxFees {
     //Tax Credits variables
     public double PAYE;
-    public double PAYE20 =  0.2;
-    public double PAYE40 = 0.4;
     public double USC =  0.05;
     public double PRSI =  0.03; 
 }

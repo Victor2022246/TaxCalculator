@@ -37,7 +37,7 @@ public class Admin {
             case 1: 
             //Calling the method that was alredy created in Regular user that will display
             //All info based in login and password provided
-             RegularUser ru = new RegularUser("CCT", "Dublin");//Giving the parameters, once Admin username and password are just one
+                RegularUser ru = new RegularUser("CCT", "Dublin");//Giving the parameters, once Admin username and password are just one
                 ru.viewDetails();//Displaying details
                 ru.regularUserInfo();//Editing whatever he wants
                 break;

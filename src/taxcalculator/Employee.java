@@ -20,27 +20,9 @@ public class Employee extends TaxFees{
     private double taxCredit;
     private String username;
     private String password;
+    private double taxableIncome;
     private static int currentID=1;
-    private double prsi=grossSalary * 0.03;
-    private double usc = grossSalary* 0.05;
-    
 
-    public Employee(String name, String surname, double grossSalary, int employeeID, double PAYE, double totalOwe, double prsi, double usc,double netSalary) {
-        this.name = name;
-        this.surname = surname;
-        this.grossSalary = grossSalary;
-        if(over<0){
-            this.PAYE=PAYE20;
-        }else{
-        this.PAYE=((grossSalary-over)*0.2)+(over*0.4);
-        }
-        this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
-        this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
-        this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
-        currentID++;//Increasing one everytime we create an employee
-    }
-    
-    
      public Employee(String name, String surname, double grossSalary, double taxCredit, String username, String password) {
         this.name = name;
         this.surname = surname;
@@ -48,12 +30,16 @@ public class Employee extends TaxFees{
         this.taxCredit = taxCredit;
         this.username = username.toUpperCase();
         this.password = password;
-        if(over<0){
-            PAYE=PAYE20;
+        this.taxableIncome = grossSalary-taxCredit;
+        if(taxableIncome<40000){
+            this.PAYE = taxableIncome*0.2;
         }else{
-            PAYE=((grossSalary-over)*0.2)+(over*0.4);
+            double payeUpTo40 = 40000*0.2;
+                    
+            double payeAbove40 = (taxableIncome-40000)*0.4;
+            this.PAYE= payeUpTo40+payeAbove40;
         }
-        this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
+        this.totalOwe = (PAYE+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
         this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
@@ -64,12 +50,16 @@ public class Employee extends TaxFees{
         this.surname = surname;
         this.grossSalary = grossSalary;
         this.taxCredit = taxCredit;
-        if(over<0){
-            this.PAYE=PAYE20;
+       this.taxableIncome = grossSalary-taxCredit;
+        if(taxableIncome<40000){
+            this.PAYE = taxableIncome*0.2;
         }else{
-        this.PAYE=((grossSalary-over)*0.2)+(over*0.4);
+            double payeUpTo40 = 40000*0.2;
+                    
+            double payeAbove40 = (taxableIncome-40000)*0.4;
+            this.PAYE= payeUpTo40+payeAbove40;
         }
-        this.totalOwe = ((grossSalary*PAYE)+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
+         this.totalOwe = (PAYE+(grossSalary*USC)+(grossSalary*PRSI));//Total of taxes will be discounted
         this.netSalary = (grossSalary-totalOwe);//The net salary will be after all deduction
         this.employeeID = currentID;//EmployeeId will start as current ID(value 1)
         currentID++;//Increasing one everytime we create an employee
@@ -103,11 +93,11 @@ public class Employee extends TaxFees{
     }
 
     public double getUSC() {
-        return grossSalary*USC;
+        return taxableIncome*USC;
     }
 
     public double getPRSI() {
-        return grossSalary*PRSI;
+        return taxableIncome*PRSI;
     }
 
     public double getTotalOwe() {
@@ -138,11 +128,19 @@ public class Employee extends TaxFees{
     public String Salary(){
         System.out.println("Hello " + name );
         System.out.println("Gross Salary: " + grossSalary + " €");
-        System.out.println("TAX PAYE: "+ grossSalary*PAYE + " €");
+        System.out.println("TaxCredit: " + taxCredit +" €");
+        System.out.println("TAX PAYE: "+ PAYE + " €");
         System.out.println("TAX USC: " + grossSalary*USC + " €");
         System.out.println("TAX PRSI: " + grossSalary*PRSI + " €");
         System.out.println("Total Owe: " + totalOwe + " €");
         System.out.println("NET Salary = " + netSalary + " €");
+        System.out.println("The Calculation behind youe NetSalary is:\n"
+                + "(TaxableIncome = (Gross Salary-TaxCredit)\n"
+                + "(Tax PAYE = (TaxableIncome*20%|40%) (20% will be applied when Taxable Income<40000, otherwise the amount over 40000 is taxed 40%)\n"
+                + "(Tax USC = (TaxableIncome*5%)\n"
+                + "(Tax PRSI = (TaxableIncome*3%)\n"
+                + "(Total Owe = (Tax PAYE+Tax USC+ Tax PRSI)\n"
+                + "Net Salary = (GrossSalary - TotalOwe) ");
         return "";
     }
 }

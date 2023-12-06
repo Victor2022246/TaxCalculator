@@ -62,7 +62,7 @@ public class RegularUser {
                 + "4.TaxCredit\n"
                 + "5.Username\n"
                 + "6.Password\n"
-                + "7. No, Closes the program.");
+                + "7. No, Bring me BACK");
         //Instantiating our scanner
         Scanner sc = new Scanner(System.in);
         //Instantiating our Writer
@@ -117,11 +117,8 @@ public class RegularUser {
                 break;
                 
             case 7:
-                System.out.println("Program Closed!!!");
+                System.out.println("----------------------------------------------");
                 
-            default:
-                System.out.println("Invalid choice, please pick an option between 1 and 6.");
-                break;
         }
     }while(choice!=7);//keeop looping until he enters 7
         } 
