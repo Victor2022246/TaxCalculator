@@ -40,8 +40,7 @@ public class Prompt {
                 + "Are you an Administrator, User or would you like to Register?\n"
                 + "1.Administrator\n"
                 + "2.User\n"
-                + "3.Register");
-        
+                + "3.Register");      
     }  
     /**
      * Will get user option from previous display
@@ -184,21 +183,15 @@ public class Prompt {
                     dbw.addEmployee(newEmp);//Adding into our table(Writer)
                     //Outputting the salary method (table informations)
                     System.out.println(newEmp.Salary());
-                    //Instantiating our RegularUser class
-                    RegularUser regularUser = new RegularUser(userName, password);
+                    //Instantiating our RegularUser class with the paramenters from this newEmp
+                    RegularUser regularUser = new RegularUser(userStudent, passwordStudent);
                     regularUser.regularUserInfo();//calling method that will ask what user wants to change
-                    
-                
+                          
                 break;
             default:
                 //Last case, user does not insert 1 or 2.
                 System.out.println("Please enter the numbers 1 or 3 which reffers to your rype of user!");
                 break;
         }
-        }
-    //Method to get the Array of userNames
-    public ArrayList<String> getUsersArray(){
-        return usersArray;
-    }
-    
+        }  
 }

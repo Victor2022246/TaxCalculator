@@ -101,7 +101,7 @@ public class Employee extends TaxFees{
     }
 
     public double getTotalOwe() {
-        return totalOwe;
+        return this.totalOwe;
     }
 
     public void setEmployeeID(int employeeID) {
