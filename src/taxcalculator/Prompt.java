@@ -150,7 +150,8 @@ public class Prompt {
                 //If both passwords matches
                 if(passwordStudent.equals(passwordStudent2)){
                     System.out.println("-------------------------------------------------");
-                    System.out.println("Welcome " + userStudent + "! You are now Registered!");
+                    System.out.println("Welcome " + userStudent + "! You are now Registered!\n"
+                            + "Your Credentials and Details have been added onto our DataBase.");
                     System.out.println("-------------------------------------------------");
                     passwordMatches=true;
                 }else{
@@ -186,6 +187,7 @@ public class Prompt {
                     //Instantiating our RegularUser class
                     RegularUser regularUser = new RegularUser(userName, password);
                     regularUser.regularUserInfo();//calling method that will ask what user wants to change
+                    
                 
                 break;
             default:

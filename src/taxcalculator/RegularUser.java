@@ -80,6 +80,7 @@ public class RegularUser {
                 System.out.println("Enter new name: ");
                 String newName = sc.nextLine().trim();
                 dbWriter.updateEmploye(userName, "name", newName);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Name has been updated!");
                 break;
                 
@@ -87,6 +88,7 @@ public class RegularUser {
                 System.out.println("Enter new Surname: ");
                 String newSurname = sc.nextLine().trim();
                 dbWriter.updateEmploye(userName, "surname", newSurname);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Surname has been updated!");
                 break;
                 
@@ -94,6 +96,7 @@ public class RegularUser {
                 System.out.println("Enter new Gross Salary:");
                 double newGrossSalary = sc.nextDouble();
                 dbWriter.updateEmploye(userName, "grossSalary", newGrossSalary);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Gross Salary has been updated!");
                 break;
                 
@@ -101,6 +104,7 @@ public class RegularUser {
                 System.out.println("Enter new Tax Credit:");
                 double newTaxCredit = sc.nextDouble();
                 dbWriter.updateEmploye(userName, "taxCredit", newTaxCredit);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Tax Credit has been updated!");
                 break;
                 
@@ -108,6 +112,7 @@ public class RegularUser {
                 System.out.println("Enter new UserName:");
                 String newUsername = sc.nextLine().trim().toUpperCase();
                 dbWriter.updateEmploye(userName, "username", newUsername);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Username has been updated!");
                 break;
                 
@@ -115,6 +120,7 @@ public class RegularUser {
                 System.out.println("Enter new password:");
                 String newPassword = sc.nextLine();
                 dbWriter.updateEmploye(userName, "password", newPassword);
+                System.out.println("------------------------------------------------------------------");
                 System.out.println("Password has been updated!");
                 break;
                 
