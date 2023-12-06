@@ -17,11 +17,6 @@ import java.util.ArrayList;
  * Return desirable variable
  */
 public class DatabaseReader extends Database{
-    
-    //ArrayList to store Employee objects retrieved from the database
-    ArrayList <Employee> allEmployees = new ArrayList<>();
-    
-    
     /**
      * Reads the last Employee ID assigned
      * @return last assigned employee ID

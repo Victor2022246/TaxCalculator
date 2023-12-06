@@ -39,17 +39,13 @@ public class TaxCalculator {
         Employee emp4 = new Employee("Renato", "Ramos", 42000, 1750, "Rere", "Re123");
         Employee emp5 = new Employee("Felipe", "Paiva", 39000, 1750, "Rere", "re123");
        
-        DatabaseWriter dbw = new DatabaseWriter();
-       try{  
+        DatabaseWriter dbw = new DatabaseWriter(); 
         dbw.addEmployee(adm);
         dbw.addEmployee(emp1);
         dbw.addEmployee(emp2);
         dbw.addEmployee(emp3);
         dbw.addEmployee(emp4);
         dbw.addEmployee(emp5);
-       }catch(Exception e){
-           System.out.println("");
-       }
         Prompt p1 = new Prompt();
         p1.Welcome();
         p1.UserValidation();
