@@ -23,6 +23,7 @@ public class Prompt {
     //Declaring an Array List, where the user's will be stored
     private ArrayList<String> usersArray = new ArrayList<>();
     DatabaseReader dbReader = new DatabaseReader();
+    Admin adm = new Admin();
     
 
     
@@ -83,6 +84,7 @@ public class Prompt {
                     System.out.println("Wrong Credentials. Please try again!");
                 }
                 }
+                adm.adminMenu();
                 break;
                 
                 /**
@@ -187,7 +189,7 @@ public class Prompt {
                 break;
             default:
                 //Last case, user does not insert 1 or 2.
-                System.out.println("Please enter the numbers 1 or 2 which reffers to your rype of user!");
+                System.out.println("Please enter the numbers 1 or 3 which reffers to your rype of user!");
                 break;
         }
         }

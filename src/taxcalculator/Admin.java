@@ -25,8 +25,8 @@ public class Admin {
                 + "1.Change youw own information\n"
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
-                + "4. Review operations perfomed by users\n"
-                + "5. Finish");
+                + "4. Finish");
+                
         
         
         
@@ -65,17 +65,13 @@ public class Admin {
                 break;
                 
             case 4:
-                
-                break;
-                
-            case 5:
                 System.out.println("Program Closed!!!");
                 break;
-                
+
             default:
-                System.out.println("Invalid choice, please pick an option between 1 and 5.");
+                System.out.println("Invalid choice, please pick an option between 1 and 4.");
         
     }
-       }while(choice!=5);//Program will loop until choices are different than 5
+       }while(choice!=4);//Program will loop until choices are different than 5
     }
 }

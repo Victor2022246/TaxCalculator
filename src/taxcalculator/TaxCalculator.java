@@ -45,9 +45,9 @@ public class TaxCalculator {
 //        dbw.addEmployee(emp3);
 //        dbw.addEmployee(emp4);
 //        dbw.addEmployee(emp5);
-//        Prompt p1 = new Prompt();
-//        p1.Welcome();
-//        p1.UserValidation();
+        Prompt p1 = new Prompt();
+        p1.Welcome();
+        p1.UserValidation();
         
 //        
 
