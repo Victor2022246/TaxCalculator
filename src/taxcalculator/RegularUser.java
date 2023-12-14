@@ -21,13 +21,12 @@ public class RegularUser {
         this.userName = userName;
         this.password = password;
     }
-                    DatabaseReader dbReader = new DatabaseReader();
-    
     /**
      * Method that will call our reader and reads user's info
      * @Return user's information stored in the DB
      */
     public void viewDetails(){
+       
         try {
             //Instantiating our Reader
             DatabaseReader dbReader = new DatabaseReader();
@@ -44,6 +43,7 @@ public class RegularUser {
                 System.out.println("PRSI: " + employee.getPRSI());
                 System.out.println("TotalOwe: " + employee.getTotalOwe());
                 System.out.println("Net salary: " + employee.getNetSalary());
+                //All the information related to that userName and Password will be displayed to the user.
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -53,6 +53,8 @@ public class RegularUser {
      * After user's data is outputted, user will choose if wants to edit any
      */
     public void regularUserInfo() throws Exception{
+        //Instantiating DatabaseReader in tbis method
+         DatabaseReader dbReader = new DatabaseReader();
         //User option will be stored in choice
         int choice;
         do{//User's menu
@@ -76,7 +78,7 @@ public class RegularUser {
         sc.nextLine();//Cleaning input request
         //For the many options below, user will be asked for a new information
         //Depending each one he wants to change. After that, this new info will be stored
-        //Replacing the old one
+        //This new value will be inserted in that userName's field
         switch(choice){
             case 1:
                 System.out.println("Enter new name: ");
@@ -95,51 +97,43 @@ public class RegularUser {
                 break;
                 
             case 3:
-
-                  Employee employee = dbReader.getEmployeeData(userName, password);
+                //Now we are dealing with the grossSalary that influentes other values of taxes and netSalary
+                //Therefore, after user inputing new value, the others related must also be updated
+                Employee employee = dbReader.getEmployeeData(userName, password);//Creating an employee object
                 // Get the current gross salary
                 double currentGrossSalary = employee.getGrossSalary();
-
                 // Get the new gross salary from the user
                 System.out.println("Enter new Gross Salary:");
-                double newGrossSalary = sc.nextDouble();
+                double newGrossSalary = sc.nextDouble();//Storing the input
                 sc.nextLine(); // Clean input buffer
                 // Update the gross salary in the employee object
                 employee.setGrossSalary(newGrossSalary);
-
                 // Recalculate tax-related fields
-                employee.calculateTax(); // You need to add a method in the Employee class to recalculate tax
-
-                // Update the employee record in the database
+                employee.calculateTax(); //Method that does the math of taxes
+                // Updating the employee data in the database
                 dbWriter.updateEmployee(userName, "grossSalary", newGrossSalary);
                 dbWriter.updateEmployee(userName, "PAYE", employee.getPAYE());
                 dbWriter.updateEmployee(userName, "USC", employee.getUSC());
                 dbWriter.updateEmployee(userName, "PRSI", employee.getPRSI());
                 dbWriter.updateEmployee(userName, "totalOwe", employee.getTotalOwe());
                 dbWriter.updateEmployee(userName, "netSalary", employee.getNetSalary());
-
-                System.out.println("------------------------------------------------------------------");
-                System.out.println("Gross Salary has been updated!");
+                System.out.println("------------------------------------------------------------------");//Line for better visualization
+                System.out.println("Gross Salary has been updated!");//Outputing that grossSalary has been updates
                 break;
                 
             case 4:
-                            // Retrieve the employee data from the database
-                 Employee employee1 = dbReader.getEmployeeData(userName, password);
-
+                 //Now we are dealing with taxCredit and once again, other data must change after this new input
+                 Employee employee1 = dbReader.getEmployeeData(userName, password);//Creating new employee object
                  // Get the current tax credit
                  double currentTaxCredit = employee1.getTaxCredit();
-
                  // Get the new tax credit from the user
                  System.out.println("Enter new Tax Credit:");
-                 double newTaxCredit = sc.nextDouble();
+                 double newTaxCredit = sc.nextDouble();//Storing the input
                  sc.nextLine(); // Clean input buffer
-
                  // Update the tax credit in the employee object
                  employee1.setTaxCredit(newTaxCredit);
-
                  // Recalculate tax-related fields
-                 employee1.calculateTax(); // You need to add a method in the Employee class to recalculate tax
-
+                 employee1.calculateTax();//Method that does the math of taxes
                  // Update the employee record in the database
                  dbWriter.updateEmployee(userName, "taxCredit", newTaxCredit);
                  dbWriter.updateEmployee(userName, "PAYE", employee1.getPAYE());
@@ -147,9 +141,8 @@ public class RegularUser {
                  dbWriter.updateEmployee(userName, "PRSI", employee1.getPRSI());
                  dbWriter.updateEmployee(userName, "totalOwe", employee1.getTotalOwe());
                  dbWriter.updateEmployee(userName, "netSalary", employee1.getNetSalary());
-
-                 System.out.println("------------------------------------------------------------------");
-                 System.out.println("Tax Credit has been updated!");
+                 System.out.println("------------------------------------------------------------------");//Line for better visualization on the prompt
+                 System.out.println("Tax Credit has been updated!");//Outputing that taxCredit has been updated
                  break;
                 
             case 5:
@@ -168,14 +161,14 @@ public class RegularUser {
                 System.out.println("Password has been updated!");
                 break;
                 
-            case 7:       
-                Employee employee2 = dbReader.getEmployeeData(userName, password);
-                employee2.Salary();
+            case 7: 
+                Employee employee2 = dbReader.getEmployeeData(userName, password);//Creating new object employee
+                employee2.Salary();//Displaying its salar wy method,w hen same is requested.
                 break;
             case 8:
                 System.out.println("------------------------------------------------------------------");
-                System.out.println("Logged out!");
+                System.out.println("Logged out!");//Case user opts to finish the prompt
         }
-    }while(choice!=8);//keeop looping until he enters 7
+    }while(choice!=8);//keeop looping until he enters 8
         } 
 }
