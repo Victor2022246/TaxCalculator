@@ -25,9 +25,11 @@ public class DatabaseWriter extends Database{
      * @throws SQLException if there is any error
      */
     public boolean addEmployee(Employee employee) throws SQLException{
+        //Making connection with database using the driver manager and credentials
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);  
                 Statement stmt= conn.createStatement();
                 ){
+            //If employee userName already exists, display that it already exists
              if (employeeExists(employee.getUsername())) {
             System.out.println("Employee with username " + employee.getUsername() + " already exists. Not adding.");
                  System.out.println("-----------------------------------------------------------------------------");
@@ -48,6 +50,7 @@ public class DatabaseWriter extends Database{
     }
     }
 private boolean employeeExists(String username) throws SQLException {
+    //Making connection with database using the driver manager and credentials
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
             // Query to check if an employee with the given username already exists
@@ -69,6 +72,7 @@ private boolean employeeExists(String username) throws SQLException {
      * @throws Exception If occurs any errors
      */
     public boolean updateEmployee (String userName,String field,Object newValue){
+        //Making connection with database using the driver manager and credentials
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);  
                 Statement stmt= conn.createStatement();
                 ){
@@ -88,7 +92,6 @@ private boolean employeeExists(String username) throws SQLException {
                   return false;
     }      
     }
-
     /**
      * Delete an employee from the database based on employeeID
      * @param employeeID The employeeID of the employee to be deleted
@@ -96,13 +99,12 @@ private boolean employeeExists(String username) throws SQLException {
      * @throws SQLException if there is any error
      */
     public boolean deleteEmployee(int employeeID){
+        //Making connection with database using the driver manager and credentials
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
-            
-            String sql = String.format("DELETE FROM %s WHERE employeeID=%d;", TABLE_NAME, employeeID);
-            
-            stmt.execute(sql);
-            
+            //Query that will delete desired suser, asking for its employeeID
+            String sql = String.format("DELETE FROM %s WHERE employeeID=%d;", TABLE_NAME, employeeID);   
+            stmt.execute(sql);           
             return true;
         }catch(Exception e){
             e.printStackTrace();
