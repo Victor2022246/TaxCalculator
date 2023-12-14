@@ -48,7 +48,7 @@ public class DatabaseSetup extends Database {
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
                 + "employeeID INT PRIMARY KEY AUTO_INCREMENT,"
                 + "name VARCHAR(255),"
-                + "surname VARCHAR(300),"
+                + "surname VARCHAR(255),"
                 + "grossSalary DOUBLE(10,2),"
                 + "TaxCredit DOUBLE(10,2),"
                 + "PAYE DOUBLE(10,2),"

@@ -26,10 +26,6 @@ public class Admin {
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
                 + "4. Finish");
-                
-        
-        
-        
         choice = sc.nextInt();
         sc.nextLine();
         

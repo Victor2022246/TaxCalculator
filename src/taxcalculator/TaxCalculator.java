@@ -28,8 +28,10 @@ public class TaxCalculator {
         //It will be created just oncce, Because it is define to create Only if not Exists
          if(DatabaseSetup.setupDB()){
             System.out.println("Database and Table created");
+             System.out.println("---------------------------------------------------------");
         }else{
             System.out.println("Oh no! There was a database creation problem...");
+             System.out.println("------------------------------------------------------------");
         }
          
         //Creating 6 employee's objects, including one with ADM credentials
@@ -58,7 +60,6 @@ public class TaxCalculator {
         //Calling method which is the main part of this code
         //With all logins and validations inside of it
         p1.UserValidation();
-
     }
 }
 

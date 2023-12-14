@@ -30,6 +30,7 @@ public class DatabaseWriter extends Database{
                 ){
              if (employeeExists(employee.getUsername())) {
             System.out.println("Employee with username " + employee.getUsername() + " already exists. Not adding.");
+                 System.out.println("-----------------------------------------------------------------------------");
             return false;
              }
                     //Constructing the query to be inserted
