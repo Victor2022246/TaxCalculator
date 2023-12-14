@@ -23,13 +23,9 @@ public class Prompt {
     //Declaring an Array List, where the user's will be stored
     private ArrayList<String> usersArray = new ArrayList<>();
     DatabaseReader dbReader = new DatabaseReader();
-    Admin adm = new Admin();
-    
-
-    
+    Admin adm = new Admin();  
     //Adding scanner to get users input
-    Scanner mykb = new Scanner(System.in);
-    
+    Scanner mykb = new Scanner(System.in); 
     /**
      * Displays the Welcome message
      */
@@ -113,13 +109,11 @@ public class Prompt {
                     regularUser.viewDetails();//Calling method that will display user's menu
                     regularUser.regularUserInfo();//Calling method that will edit the information the user decides
                     validCredentials = true;//Will stop loop if credentials are true
-                }else{
-                    
+                }else{                   
                     System.out.println("Invalid credentials. Please try again!");//Case credentials are not found on our DB
                 }
                 }
-                break;
-                
+                break;              
                 /**
                  * Last case, will receive new Users data and write in our db
                  */
