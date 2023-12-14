@@ -68,7 +68,7 @@ private boolean employeeExists(String username) throws SQLException {
      * @return true if the update was successful, false otherwise
      * @throws Exception If occurs any errors
      */
-    public boolean updateEmploye (String userName,String field,Object newValue){
+    public boolean updateEmployee (String userName,String field,Object newValue){
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);  
                 Statement stmt= conn.createStatement();
                 ){
@@ -80,15 +80,17 @@ private boolean employeeExists(String username) throws SQLException {
                                 }else{//In case the value is not a string, temporary make it a string and than convert back
                         sql = String.format("UPDATE %s SET %s=%s WHERE username='%s';", TABLE_NAME, field, newValue, userName);
                     }
+             
                     stmt.execute(sql);//Execute the query above
                     return true;
     }catch(Exception e){
         e.printStackTrace();//throw error and return false.
                   return false;
+    }      
     }
-    }
+
     /**
-     * Delete anemployee from the database based on employeeID
+     * Delete an employee from the database based on employeeID
      * @param employeeID The employeeID of the employee to be deleted
      * @return true if the deletion was completed, false otherwise
      * @throws SQLException if there is any error
