@@ -8,7 +8,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 /**
  *
@@ -23,6 +22,7 @@ public class DatabaseReader extends Database{
      * @throws Exception in case an error occurs
      */
     public int getLastEmployeeID() throws Exception{
+        //Making connection to database by DriverManager
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             //String query to select the last employee id
@@ -46,6 +46,7 @@ public class DatabaseReader extends Database{
          * @throws Exception if any error occurs
          */
      public boolean checkUserCredentials(String userName, String password) throws Exception{
+         //Making connection to database by DriverManager
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             //Query to check if the provided username and password exists in our DB 
@@ -66,6 +67,7 @@ public class DatabaseReader extends Database{
       * @throws Exception if an error occurs.
       */
           public Employee getEmployeeData(String userName, String password) throws Exception{
+        //Making connection to database by DriverManager
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
                 Statement stmt = conn.createStatement()){
             //Query to check if the provided username and password exists in our DB 
@@ -88,24 +90,23 @@ public class DatabaseReader extends Database{
                 );
             }
         }catch (Exception e){
-            e.printStackTrace();//Output exception
-            
+            e.printStackTrace();//Output exception          
         } 
             return null;        
      }
-         
-    public void displayAllData(){
-    
-        
+          /**
+           * Retrieves all employee data. THis method will be only allowed to the Administrator
+           */
+    public void displayAllData(){  
+        //Making connection to database by DriverManager
      try(Connection conn= DriverManager.getConnection(DB_URL, USER,PASSWORD);
     Statement stmt = conn.createStatement()
     ){
-       
+         //Query that will select everythig from our table
      String sql = "SELECT * FROM " + TABLE_NAME;
-     ResultSet resultSet = stmt.executeQuery(sql);
-         
+     ResultSet resultSet = stmt.executeQuery(sql);        
         //Loop though the result set and display each row    
-       while (resultSet.next()){
+       while (resultSet.next()){//While is there any value on nextline, keep reading and then outputting the results following the order
             System.out.println("Employee ID: " + resultSet.getInt("employeeID"));
             System.out.println("Name: " + resultSet.getString("name"));
             System.out.println("Surname: " + resultSet.getString("surname"));
@@ -120,7 +121,7 @@ public class DatabaseReader extends Database{
             System.out.println("----------------------------------------------------");
          }  
       }catch (Exception e) {
-          e.printStackTrace();
+          e.printStackTrace();//Throw error case error occurs
     }
 } 
 }
