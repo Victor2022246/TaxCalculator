@@ -39,7 +39,7 @@ public class TaxCalculator {
         Employee emp1 = new Employee("Sander", "Soares", 35000, 1750, "Sansan", "9876");
         Employee emp2 = new Employee("Victor", "Oliveira", 50000, 1750, "vic" , "vic123");
         Employee emp3 = new Employee("Kevin", "Santos", 96000, 1750, "kevins", "keke123");
-        Employee emp4 = new Employee("Renato", "Ramos", 42000, 1750, "Rere", "Re123");
+        Employee emp4 = new Employee("Renato", "Ramos", 42000, 1750, "linda", "Re123");
         Employee emp5 = new Employee("Felipe", "Paiva", 39000, 1750, "Rere", "re123");
         
        //Instantiating the DatabaseWriter so we can add them into the table
