@@ -123,7 +123,16 @@ public class Employee extends TaxFees{
 
     public String getPassword() {
         return password;
-    }     
+    }  
+
+    public void setGrossSalary(double grossSalary) {
+        this.grossSalary = grossSalary;
+    }
+
+    public void setTaxCredit(double taxCredit) {
+        this.taxCredit = taxCredit;
+    }
+    
     //Method to show the Taxes' deductions
     public String Salary(){
         System.out.println("-------------------------------------------------------------------------------------------------------------------------");
@@ -144,5 +153,20 @@ public class Employee extends TaxFees{
                 + "(Total Owe = (Tax PAYE+Tax USC+ Tax PRSI)\n"
                 + "Net Salary = (GrossSalary - TotalOwe) ");
         return "";
+    }
+    
+public void calculateTax() {
+    this.taxableIncome = this.grossSalary - this.taxCredit;
+
+    if (this.taxableIncome < 40000) {
+        this.PAYE = this.taxableIncome * 0.2;
+    } else {
+        double payeUpTo40 = 40000 * 0.2;
+        double payeAbove40 = (this.taxableIncome - 40000) * 0.4;
+        this.PAYE = payeUpTo40 + payeAbove40;
+    }
+
+    this.totalOwe = (this.PAYE + (this.grossSalary * USC) + (this.grossSalary * PRSI));
+    this.netSalary = (this.grossSalary - this.totalOwe);
     }
 }
