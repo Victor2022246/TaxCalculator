@@ -43,13 +43,13 @@ public class DatabaseSetup extends Database {
         stmt.execute("CREATE DATABASE IF NOT EXISTS "+ DB_NAME + ";");// Creating the data base 
         stmt.execute("USE "+ DB_NAME + ";");// select the data base to use 
         
-        // String to store the table which will be created 
+        // String query to store the table which will be created 
         String sql =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
-                + "employeeID INT PRIMARY KEY AUTO_INCREMENT,"
-                + "name VARCHAR(255),"
+                + "employeeID INT PRIMARY KEY AUTO_INCREMENT,"//Defining employeeId as our Primary KEY
+                + "name VARCHAR(255),"//all the string will be stored as VARCHAR (255 - more than enough characters)
                 + "surname VARCHAR(255),"
-                + "grossSalary DOUBLE(10,2),"
+                + "grossSalary DOUBLE(10,2),"//All the numbers as DOUBLE (10,2) - 10 digits with 2 digits on the decimals
                 + "TaxCredit DOUBLE(10,2),"
                 + "PAYE DOUBLE(10,2),"
                 + "USC DOUBLE(10,2),"
