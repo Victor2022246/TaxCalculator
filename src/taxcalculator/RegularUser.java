@@ -86,6 +86,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "name", newName);
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("Name has been updated!");
+                dbWriter.updateOperationLog(userName, "Updated name to " +newName);
                 break;
                 
             case 2:
@@ -94,6 +95,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "surname", newSurname);
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("Surname has been updated!");
+                dbWriter.updateOperationLog(userName, "Updated Surname to " +newSurname);
                 break;
                 
             case 3:
@@ -119,6 +121,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "netSalary", employee.getNetSalary());
                 System.out.println("------------------------------------------------------------------");//Line for better visualization
                 System.out.println("Gross Salary has been updated!");//Outputing that grossSalary has been updates
+                dbWriter.updateOperationLog(userName, "Updated gross salary to " +newGrossSalary);
                 break;
                 
             case 4:
@@ -143,6 +146,7 @@ public class RegularUser {
                  dbWriter.updateEmployee(userName, "netSalary", employee1.getNetSalary());
                  System.out.println("------------------------------------------------------------------");//Line for better visualization on the prompt
                  System.out.println("Tax Credit has been updated!");//Outputing that taxCredit has been updated
+                 dbWriter.updateOperationLog(userName, "Updated Tax Credit to " +newTaxCredit);
                  break;
                 
             case 5:
@@ -151,6 +155,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "username", newUsername);
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("Username has been updated!");
+                dbWriter.updateOperationLog(userName, "Updated Username to " +newUsername);
                 break;
                 
             case 6:
@@ -159,6 +164,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "password", newPassword);
                 System.out.println("------------------------------------------------------------------");
                 System.out.println("Password has been updated!");
+                dbWriter.updateOperationLog(userName, "Updated Password to " +newPassword);//Even though it is not safe, I'm adding this function
                 break;
                 
             case 7: 
