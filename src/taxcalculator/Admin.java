@@ -76,11 +76,11 @@ public class Admin {
                 
             case 4:
                Admin admin = new Admin();
-                System.out.println("Enter the employeeID you want to review, please!");
-                int log = sc.nextInt();//storing admin's choice
-                sc.nextLine();//to clear the input buffer
-               admin.viewEmployeeOperationsLog(log);
-            
+                System.out.println("Enter the Username of the employee you want to review, please!");
+                System.out.println("----------------------------------------------------");
+                String log = sc.nextLine();//storing admin's choice
+               admin.viewOperationsLog(log);   
+               System.out.println("----------------------------------------------------");
             case 5:
                  //Case 5: admin wants to finish the program
                 System.out.println("Program Closed!!!");//Program finishes after displaying this.
@@ -92,7 +92,7 @@ public class Admin {
     }
        }while(choice!=5);//Program will loop until choices are different than 4
     }
-   public void viewOperationsLog() {
+   public String viewOperationsLog(String userName) {
         try {
             // Instantiate DatabaseReader
             DatabaseReader dbReader = new DatabaseReader();
@@ -109,6 +109,7 @@ public class Admin {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
     
 }
