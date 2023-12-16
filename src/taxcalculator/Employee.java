@@ -135,6 +135,14 @@ public class Employee extends TaxFees{
     public void setTaxCredit(double taxCredit) {
         this.taxCredit = taxCredit;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
     //Method to show the Taxes' deductions
     public String Salary(){

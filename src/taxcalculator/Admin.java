@@ -33,11 +33,16 @@ public class Admin {
         //Initialiating do-while loop
        do{ 
         System.out.println("What would you like to do? \n"
-                + "1.Change youw own information\n"
+                + "1. Display my information\n"
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
                 + "4. Review operations perfomed by a user\n"
                 + "5. Finish");
+        // Input validation loop
+            while (!sc.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a number between 1 and 5.");
+                sc.next(); // Consume the invalid input
+            }
         choice = sc.nextInt();//Storing admin's choice after request
         sc.nextLine();//cleaning input buffer
         //Starting switch statement

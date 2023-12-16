@@ -159,9 +159,11 @@ public class RegularUser {
                  break;
                 
             case 5:
+                Employee employee2 = dbReader.getEmployeeData(userName, password);
                 System.out.println("Enter new UserName:");//asking for user's new userName
                 String newUsername = sc.nextLine().trim().toUpperCase();//storing input and eliminating unnecessary spaces and changing to upcase
                 dbWriter.updateEmployee(userName, "username", newUsername);//the username of the employee requesting the update; the field which will be changed
+                employee2.setUsername(newUsername);
                 //the new value for that field
                 System.out.println("------------------------------------------------------------------");//line for better visualization
                 System.out.println("Username has been updated!");//displaying message that everythig went fine
@@ -169,9 +171,12 @@ public class RegularUser {
                 break;
                 
             case 6:
+                Employee employee3 = dbReader.getEmployeeData(userName, password);
                 System.out.println("Enter new password:");//asking for user's new password
                 String newPassword = sc.nextLine();//Storing user's input
+                employee3.setPassword(newPassword);
                 dbWriter.updateEmployee(userName, "password", newPassword);//the username of the employee requesting the update; the field which will be changed
+                
                 //the new value for that field
                 System.out.println("------------------------------------------------------------------");//line for better visualization
                 System.out.println("Password has been updated!");//displaying message that everythig went fine
@@ -180,8 +185,8 @@ public class RegularUser {
                 break;
                 
             case 7: 
-                Employee employee2 = dbReader.getEmployeeData(userName, password);//Creating new object employee
-                employee2.Salary();//Displaying its salar wy method,w hen same is requested.
+                Employee employee4 = dbReader.getEmployeeData(userName, password);//Creating new object employee
+                employee4.Salary();//Displaying its salar wy method,w hen same is requested.
                 break;
             case 8:
                 System.out.println("------------------------------------------------------------------");//line for better visualization
