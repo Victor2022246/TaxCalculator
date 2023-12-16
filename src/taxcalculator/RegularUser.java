@@ -75,7 +75,7 @@ public class RegularUser {
                 + "8.LOGOUT and Finish!");
         
         //validating input
-        while(!sc.hasNextInt()){
+        while(!sc.hasNextInt()){//ask for a number until it is really a number
             System.out.println("Invalid Input, please enter a number between 1 and 8.");
             sc.nextLine();//consume input
         }
@@ -186,6 +186,7 @@ public class RegularUser {
             case 8:
                 System.out.println("------------------------------------------------------------------");//line for better visualization
                 System.out.println("Logged out!");//Case user opts to finish the prompt
+                System.out.println("------------------------------------------------------------------");//line for better visualization
                 break;
                 
             default:

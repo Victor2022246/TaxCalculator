@@ -55,8 +55,6 @@ public class TaxCalculator {
         
         //Instantiating our Prompt Class
         Prompt p1 = new Prompt();
-        //calling the method which displays the MAIN MENU
-        p1.Welcome();
         //Calling method which is the main part of this code
         //With all logins and validations inside of it
         p1.UserValidation();

@@ -25,31 +25,28 @@ public class Prompt {
     DatabaseReader dbReader = new DatabaseReader();
     Admin adm = new Admin();  
     //Adding scanner to get users input
-    Scanner mykb = new Scanner(System.in); 
-    /**
-     * Displays the Welcome message
-     */
-    public void Welcome(){
-        //Displaying welcome message
-        System.out.println("Hi!! Welcome to the TAX calculator!\n"
-                + "Please, provide your credentials!\n"
-                + "Are you an Administrator, User or would you like to Register?\n"
-                + "1.Administrator\n"
-                + "2.User\n"
-                + "3.Register");      
-    }  
+    Scanner mykb = new Scanner(System.in);  
     /**
      * Will get user option from previous display
      * @throws SQLException
      * @throws Exception 
      */
     public void UserValidation() throws SQLException, Exception{
+        do{
+        //Displaying welcome message
+        System.out.println("Hi!! Welcome to the TAX calculator!\n"
+                + "Please, provide your credentials!\n"
+                + "Are you an Administrator, User or would you like to Register?\n"
+                + "1.Administrator\n"
+                + "2.User\n"
+                + "3.Register\n"
+                + "4.EXIT");
         //Getting what user inputs on the keyboard
-            int typeOfUser = mykb.nextInt();
+            this.typeOfUser = mykb.nextInt();
             //To be sure that the newLine character is consumed, a nextLine method is added.
             mykb.nextLine();       
             //Starting the Switch statement
-        switch (typeOfUser) {
+        switch (this.typeOfUser) {
             /**
              * Will receive user's input for Admin credentials
              * Return true and grants login if the right credentials are inputted, false and ask again for credentials if otherwise
@@ -182,10 +179,15 @@ public class Prompt {
                     regularUser.regularUserInfo();//calling method that will ask what user wants to change
                           
                 break;
+            case 4:
+                System.out.println("PROGRAM CLOSED!");//Finished the program
+                break;
+                
             default:
                 //Last case, user does not insert 1 or 2.
                 System.out.println("Please enter the numbers 1 or 3 which reffers to your rype of user!");
                 break;
         }
+    }while(this.typeOfUser!=4);
         }  
 }
