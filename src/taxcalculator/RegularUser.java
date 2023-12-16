@@ -72,7 +72,7 @@ public class RegularUser {
                 + "6.Password\n"
                 + "Or would you like to see your Salary calculation again:\n"
                 + "7. Salary\n"
-                + "8.LOGOUT and Finish!");
+                + "8.LOGOUT");
         
         //validating input
         while(!sc.hasNextInt()){//ask for a number until it is really a number
