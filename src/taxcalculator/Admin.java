@@ -76,11 +76,14 @@ public class Admin {
                 
             case 4:
                Admin admin = new Admin();
-                System.out.println("Enter the Username of the employee you want to review, please!");
-                System.out.println("----------------------------------------------------");
+               System.out.println("----------------------------------------------------");
+                System.out.println("Enter the Username of the employee you want to review, please!");  
                 String log = sc.nextLine();//storing admin's choice
+                System.out.println("----------------------------------------------------");
                admin.viewOperationsLog(log);   
                System.out.println("----------------------------------------------------");
+               break;
+               
             case 5:
                  //Case 5: admin wants to finish the program
                 System.out.println("Program Closed!!!");//Program finishes after displaying this.
