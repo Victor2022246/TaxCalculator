@@ -144,10 +144,10 @@ public class DatabaseReader extends Database{
 
             // Loop through the result set and add each operation log entry to the list
             while (resultSet.next()) {
-                String operation = resultSet.getString("operation");
-                Timestamp timestamp = resultSet.getTimestamp("timestamp");
-                String logEntry = String.format("[%s] %s", timestamp.toString(), operation);
-                operationsLog.add(logEntry);
+                String operation = resultSet.getString("operation");//retrieves the values of the operation column from the current rown in the result set
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");//Retrieves the values of the column "timestamp" of the current row
+                String logEntry = String.format("[%s] %s", timestamp.toString(), operation);//formats the timestamp and operation values into log entry strings.
+                operationsLog.add(logEntry);//adds log entry string to the oeprations log list.
             }
 
         } catch (Exception e) {
