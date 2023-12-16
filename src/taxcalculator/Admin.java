@@ -1,9 +1,10 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package taxcalculator;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -82,6 +83,28 @@ public class Admin {
         
     }
        }while(choice!=4);//Program will loop until choices are different than 4
+    }
+      /**
+     * Displays the operation log for the current user
+     * @param employeeID will be entered by admin
+     */
+   public void viewEmployeeOperationsLog(int employeeID) {
+        try {
+            // Instantiate DatabaseReader
+            DatabaseReader dbReader = new DatabaseReader();
+
+            // Retrieve the operation log for the specified employee
+            List<String> operationsLog = dbReader.getOperationsLog(employeeID);
+
+            // Display the operation log entries
+            System.out.println("Operation Log for Employee ID " + employeeID + ":");
+            for (String logEntry : operationsLog) {
+                System.out.println(logEntry);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
 }
