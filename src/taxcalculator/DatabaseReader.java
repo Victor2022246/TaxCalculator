@@ -8,6 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -123,6 +126,35 @@ public class DatabaseReader extends Database{
       }catch (Exception e) {
           e.printStackTrace();//Throw error case error occurs
     }
-} 
+}
+    /**
+     * Retrieves the operation log for a user
+     *
+     * @param userName The username of the user
+     * @return List of operation log entries
+     */
+    public List<String> getOperationsLog(String userName) {
+        List<String> operationsLog = new ArrayList<>();
+
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+             Statement stmt = conn.createStatement()) {
+            // Query to retrieve the operation log for a specific user
+            String sql = String.format("SELECT * FROM operation_log WHERE username='%s';", userName);
+            ResultSet resultSet = stmt.executeQuery(sql);
+
+            // Loop through the result set and add each operation log entry to the list
+            while (resultSet.next()) {
+                String operation = resultSet.getString("operation");
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");
+                String logEntry = String.format("[%s] %s", timestamp.toString(), operation);
+                operationsLog.add(logEntry);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return operationsLog;
+    }
 }
 
