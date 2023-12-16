@@ -92,20 +92,16 @@ public class Admin {
     }
        }while(choice!=5);//Program will loop until choices are different than 4
     }
-      /**
-     * Displays the operation log for the current user
-     * @param employeeID will be entered by admin
-     */
-   public void viewEmployeeOperationsLog(int employeeID) {
+   public void viewOperationsLog() {
         try {
             // Instantiate DatabaseReader
             DatabaseReader dbReader = new DatabaseReader();
 
-            // Retrieve the operation log for the specified employee
-            List<String> operationsLog = dbReader.getOperationsLog(employeeID);
+            // Retrieve the operation log for the current user
+            List<String> operationsLog = dbReader.getOperationsLog(userName);
 
             // Display the operation log entries
-            System.out.println("Operation Log for Employee ID " + employeeID + ":");
+            System.out.println("Operation Log for " + userName + ":");
             for (String logEntry : operationsLog) {
                 System.out.println(logEntry);
             }

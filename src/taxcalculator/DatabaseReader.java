@@ -130,24 +130,24 @@ public class DatabaseReader extends Database{
     /**
      * Retrieves the operation log for a user
      *
-     * @param employeeID The employeeID of the user
+     * @param userName The username of the user
      * @return List of operation log entries
      */
-    public List<String> getOperationsLog(int employeeID) {
+    public List<String> getOperationsLog(String userName) {
         List<String> operationsLog = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
             // Query to retrieve the operation log for a specific user
-            String sql = String.format("SELECT * FROM operation_log WHERE employeeID=%d;", employeeID);
+            String sql = String.format("SELECT * FROM operation_log WHERE username='%s';", userName);
             ResultSet resultSet = stmt.executeQuery(sql);
 
             // Loop through the result set and add each operation log entry to the list
             while (resultSet.next()) {
-                String operation = resultSet.getString("operation");//retrieves the values of the operation column from the current rown in the result set
-                Timestamp timestamp = resultSet.getTimestamp("timestamp");//Retrieves the values of the column "timestamp" of the current row
-                String logEntry = String.format("[%s] %s", timestamp.toString(), operation);//formats the timestamp and operation values into log entry strings.
-                operationsLog.add(logEntry);//adds log entry string to the oeprations log list.
+                String operation = resultSet.getString("operation");
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");
+                String logEntry = String.format("[%s] %s", timestamp.toString(), operation);
+                operationsLog.add(logEntry);
             }
 
         } catch (Exception e) {
