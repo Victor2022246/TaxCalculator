@@ -33,7 +33,7 @@ public class RegularUser {
             //Calling the method
             Employee employee = dbReader.getEmployeeData(userName, password);       
             if(employee !=null){//if employee exists
-                System.out.println("Employee Details: ");
+                System.out.println("Employee Details: ");//Print all information, followed by getting the value from the table in our DB
                 System.out.println("Name: " + employee.getName());
                 System.out.println("Surname: " + employee.getSurname());
                 System.out.println("Gross salary: " + employee.getGrossSalary());
@@ -79,23 +79,26 @@ public class RegularUser {
         //For the many options below, user will be asked for a new information
         //Depending each one he wants to change. After that, this new info will be stored
         //This new value will be inserted in that userName's field
+        //All these alterations will be stored in our log's table
         switch(choice){
             case 1:
-                System.out.println("Enter new name: ");
-                String newName = sc.nextLine().trim();
-                dbWriter.updateEmployee(userName, "name", newName);
-                System.out.println("------------------------------------------------------------------");
-                System.out.println("Name has been updated!");
-                dbWriter.updateOperationLog(userName, "Updated name to " +newName);
+                System.out.println("Enter new name: ");//Asking user to enter new name
+                String newName = sc.nextLine().trim();//storing input and eliminating unnecessary spaces
+                dbWriter.updateEmployee(userName, "name", newName);//the username of the employee requesting the update; the field which will be changed
+                //the new value for that field
+                System.out.println("------------------------------------------------------------------");//line for better visualization
+                System.out.println("Name has been updated!");//displaying message that everythig went fine
+                dbWriter.updateOperationLog(userName, "Updated name to " +newName);//Storing the altration log in the second table for logs.
                 break;
                 
             case 2:
-                System.out.println("Enter new Surname: ");
-                String newSurname = sc.nextLine().trim();
-                dbWriter.updateEmployee(userName, "surname", newSurname);
-                System.out.println("------------------------------------------------------------------");
-                System.out.println("Surname has been updated!");
-                dbWriter.updateOperationLog(userName, "Updated Surname to " +newSurname);
+                System.out.println("Enter new Surname: ");//Asking for user's new surname
+                String newSurname = sc.nextLine().trim();//storing input and eliminating unnecessary spaces
+                dbWriter.updateEmployee(userName, "surname", newSurname);//the username of the employee requesting the update; the field which will be changed
+                //the new value for that field
+                System.out.println("------------------------------------------------------------------");//line for better visualization
+                System.out.println("Surname has been updated!");//displaying message that everythig went fine
+                dbWriter.updateOperationLog(userName, "Updated Surname to " +newSurname);//Storing the altration log in the second table for logs.
                 break;
                 
             case 3:
@@ -121,7 +124,7 @@ public class RegularUser {
                 dbWriter.updateEmployee(userName, "netSalary", employee.getNetSalary());
                 System.out.println("------------------------------------------------------------------");//Line for better visualization
                 System.out.println("Gross Salary has been updated!");//Outputing that grossSalary has been updates
-                dbWriter.updateOperationLog(userName, "Updated gross salary to " +newGrossSalary);
+                dbWriter.updateOperationLog(userName, "Updated gross salary to " +newGrossSalary);//Storing the altration log in the second table for logs.
                 break;
                 
             case 4:
@@ -146,25 +149,28 @@ public class RegularUser {
                  dbWriter.updateEmployee(userName, "netSalary", employee1.getNetSalary());
                  System.out.println("------------------------------------------------------------------");//Line for better visualization on the prompt
                  System.out.println("Tax Credit has been updated!");//Outputing that taxCredit has been updated
-                 dbWriter.updateOperationLog(userName, "Updated Tax Credit to " +newTaxCredit);
+                 dbWriter.updateOperationLog(userName, "Updated Tax Credit to " +newTaxCredit);//Storing the altration log in the second table for logs.
                  break;
                 
             case 5:
-                System.out.println("Enter new UserName:");
-                String newUsername = sc.nextLine().trim().toUpperCase();
-                dbWriter.updateEmployee(userName, "username", newUsername);
-                System.out.println("------------------------------------------------------------------");
-                System.out.println("Username has been updated!");
-                dbWriter.updateOperationLog(userName, "Updated Username to " +newUsername);
+                System.out.println("Enter new UserName:");//asking for user's new userName
+                String newUsername = sc.nextLine().trim().toUpperCase();//storing input and eliminating unnecessary spaces and changing to upcase
+                dbWriter.updateEmployee(userName, "username", newUsername);//the username of the employee requesting the update; the field which will be changed
+                //the new value for that field
+                System.out.println("------------------------------------------------------------------");//line for better visualization
+                System.out.println("Username has been updated!");//displaying message that everythig went fine
+                dbWriter.updateOperationLog(userName, "Updated Username to " +newUsername);//Storing the altration log in the second table for logs.
                 break;
                 
             case 6:
-                System.out.println("Enter new password:");
-                String newPassword = sc.nextLine();
-                dbWriter.updateEmployee(userName, "password", newPassword);
-                System.out.println("------------------------------------------------------------------");
-                System.out.println("Password has been updated!");
+                System.out.println("Enter new password:");//asking for user's new password
+                String newPassword = sc.nextLine();//Storing user's input
+                dbWriter.updateEmployee(userName, "password", newPassword);//the username of the employee requesting the update; the field which will be changed
+                //the new value for that field
+                System.out.println("------------------------------------------------------------------");//line for better visualization
+                System.out.println("Password has been updated!");//displaying message that everythig went fine
                 dbWriter.updateOperationLog(userName, "Updated Password to " +newPassword);//Even though it is not safe, I'm adding this function
+                //Storing the altration log in the second table for logs.
                 break;
                 
             case 7: 
@@ -172,7 +178,7 @@ public class RegularUser {
                 employee2.Salary();//Displaying its salar wy method,w hen same is requested.
                 break;
             case 8:
-                System.out.println("------------------------------------------------------------------");
+                System.out.println("------------------------------------------------------------------");//line for better visualization
                 System.out.println("Logged out!");//Case user opts to finish the prompt
         }
     }while(choice!=8);//keeop looping until he enters 8
