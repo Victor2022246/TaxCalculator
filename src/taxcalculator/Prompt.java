@@ -180,7 +180,9 @@ public class Prompt {
                           
                 break;
             case 4:
+                System.out.println("-------------------------------------------------");
                 System.out.println("PROGRAM CLOSED!");//Finished the program
+                System.out.println("-------------------------------------------------");
                 break;
                 
             default:

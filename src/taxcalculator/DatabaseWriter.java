@@ -128,7 +128,7 @@ private boolean employeeExists(String username) throws SQLException {
              Statement stmt = conn.createStatement()) {
             // Construct the SQL query to insert a new log entry
             String sql = String.format("INSERT INTO operation_log (username, operation) VALUES ('%s', '%s');",
-                    userName, operation);
+                    userName.toUpperCase(), operation);
             stmt.execute(sql);
             return true;
         } catch (Exception e) {
