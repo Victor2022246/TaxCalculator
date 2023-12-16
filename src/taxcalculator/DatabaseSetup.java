@@ -59,13 +59,24 @@ public class DatabaseSetup extends Database {
                 + "username VARCHAR(255),"
                 + "password VARCHAR(255)"
                 +  ");";
-        stmt.execute(sql);
-        //Update to indicate setup has been done
-        isDatabaseSetupDone = true;
-        return true;//If connection is successfull, return true            
-    }catch (Exception e){//Otherwise return the catch and false
-    e.printStackTrace();
-    return false;
-    } 
- }
+        stmt.execute(sql);//Execute the query  
+        
+        // Create a table for operation log
+            String sqlOperationLog =
+                    "CREATE TABLE IF NOT EXISTS operation_log ("
+                            + "logID INT PRIMARY KEY AUTO_INCREMENT,"
+                            + "username VARCHAR(255),"
+                            + "operation TEXT,"
+                            + "timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP"
+                            + ");";
+            stmt.execute(sqlOperationLog);
+
+            // Update to indicate setup has been done
+            isDatabaseSetupDone = true;
+            return true;//If connection is successful, return true
+        } catch (Exception e) {//Otherwise return the catch and false
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
