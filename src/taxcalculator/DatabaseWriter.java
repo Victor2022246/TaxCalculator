@@ -49,6 +49,12 @@ public class DatabaseWriter extends Database{
                   return false;
     }
     }
+    /**
+     * Check if the employee username already exists
+     * @param username the employee's username to be checked
+     * @return grant access if username not exists, denies otherwise.
+     * @throws SQLException 
+     */
 private boolean employeeExists(String username) throws SQLException {
     //Making connection with database using the driver manager and credentials
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
@@ -111,16 +117,8 @@ private boolean employeeExists(String username) throws SQLException {
             return false;
         }
     }
-        /**
-     * Updates the operation log for a user
-     *
-     * @param employeeID  the ID of the employee
-     * @param operation The description of the operation
-     * @return true if the update was successful, false otherwise
-     */
  /**
      * Updates the operation log for a user
-     *
      * @param userName  The username of the user performing the operation
      * @param operation The description of the operation
      * @return true if the update was successful, false otherwise
