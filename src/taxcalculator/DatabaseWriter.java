@@ -111,4 +111,24 @@ private boolean employeeExists(String username) throws SQLException {
             return false;
         }
     }
+        /**
+     * Updates the operation log for a user
+     *
+     * @param userName  The username of the user performing the operation
+     * @param operation The description of the operation
+     * @return true if the update was successful, false otherwise
+     */
+    public boolean updateOperationLog(String userName, String operation) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+             Statement stmt = conn.createStatement()) {
+            // Construct the SQL query to insert a new entry log
+            String sql = String.format("INSERT INTO operation_log (username, operation) VALUES ('%s', '%s');",
+                    userName, operation);
+            stmt.execute(sql);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
