@@ -55,6 +55,10 @@ public class RegularUser {
     public void regularUserInfo() throws Exception{
         //Instantiating DatabaseReader in tbis method
          DatabaseReader dbReader = new DatabaseReader();
+         //Instantiating our Writer
+        DatabaseWriter dbWriter = new DatabaseWriter();
+         //Instantiating our scanner
+        Scanner sc = new Scanner(System.in);
         //User option will be stored in choice
         int choice;
         do{//User's menu
@@ -69,10 +73,12 @@ public class RegularUser {
                 + "Or would you like to see your Salary calculation again:\n"
                 + "7. Salary\n"
                 + "8.LOGOUT and Finish!");
-        //Instantiating our scanner
-        Scanner sc = new Scanner(System.in);
-        //Instantiating our Writer
-        DatabaseWriter dbWriter = new DatabaseWriter();
+        
+        //validating input
+        while(!sc.hasNextInt()){
+            System.out.println("Invalid Input, please enter a number between 1 and 8.");
+            sc.nextLine();//consume input
+        }
         //Collecting user's input
         choice = sc.nextInt();
         sc.nextLine();//Cleaning input request
@@ -180,6 +186,10 @@ public class RegularUser {
             case 8:
                 System.out.println("------------------------------------------------------------------");//line for better visualization
                 System.out.println("Logged out!");//Case user opts to finish the prompt
+                break;
+                
+            default:
+                System.out.println("Invalid choice. Please enter a valid number.");
         }
     }while(choice!=8);//keeop looping until he enters 8
         } 
