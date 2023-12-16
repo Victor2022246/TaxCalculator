@@ -130,16 +130,16 @@ public class DatabaseReader extends Database{
     /**
      * Retrieves the operation log for a user
      *
-     * @param userName The username of the user
+     * @param employeeID The employeeID of the user
      * @return List of operation log entries
      */
-    public List<String> getOperationsLog(String userName) {
+    public List<String> getOperationsLog(int employeeID) {
         List<String> operationsLog = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
              Statement stmt = conn.createStatement()) {
             // Query to retrieve the operation log for a specific user
-            String sql = String.format("SELECT * FROM operation_log WHERE username='%s';", userName);
+            String sql = String.format("SELECT * FROM operation_log WHERE employeeID=%d;", employeeID);
             ResultSet resultSet = stmt.executeQuery(sql);
 
             // Loop through the result set and add each operation log entry to the list
