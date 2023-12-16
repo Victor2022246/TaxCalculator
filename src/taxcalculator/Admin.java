@@ -36,6 +36,7 @@ public class Admin {
                 + "1.Change youw own information\n"
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
+                + "4. Review operations perfomed by a user\n"
                 + "4. Finish");
         choice = sc.nextInt();//Storing admin's choice after request
         sc.nextLine();//cleaning input buffer
@@ -74,15 +75,22 @@ public class Admin {
                 break;
                 
             case 4:
-                //Case 4: admin wants to finish the program
+               Admin admin = new Admin();
+                System.out.println("Enter the employeeID you want to review, please!");
+                int log = sc.nextInt();//storing admin's choice
+                sc.nextLine();//to clear the input buffer
+               admin.viewEmployeeOperationsLog(log);
+            
+            case 5:
+                 //Case 5: admin wants to finish the program
                 System.out.println("Program Closed!!!");//Program finishes after displaying this.
                 break;
 
             default:
-                System.out.println("Invalid choice, please pick an option between 1 and 4.");//In case user does not input valid option
+                System.out.println("Invalid choice, please pick an option between 1 and 5.");//In case user does not input valid option
         
     }
-       }while(choice!=4);//Program will loop until choices are different than 4
+       }while(choice!=5);//Program will loop until choices are different than 4
     }
       /**
      * Displays the operation log for the current user
