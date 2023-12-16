@@ -37,7 +37,7 @@ public class Admin {
                 + "2. Access list of users\n"
                 + "3. Remove users\n"
                 + "4. Review operations perfomed by a user\n"
-                + "4. Finish");
+                + "5. Finish");
         choice = sc.nextInt();//Storing admin's choice after request
         sc.nextLine();//cleaning input buffer
         //Starting switch statement
@@ -78,7 +78,7 @@ public class Admin {
                Admin admin = new Admin();
                System.out.println("----------------------------------------------------");
                 System.out.println("Enter the Username of the employee you want to review, please!");  
-                String log = sc.nextLine();//storing admin's choice
+                String log = sc.nextLine().toUpperCase();//storing admin's choice and changing to uppercase
                 System.out.println("----------------------------------------------------");
                admin.viewOperationsLog(log);   
                System.out.println("----------------------------------------------------");

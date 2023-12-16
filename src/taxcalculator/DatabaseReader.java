@@ -141,7 +141,12 @@ public class DatabaseReader extends Database{
             // Query to retrieve the operation log for a specific user
             String sql = String.format("SELECT * FROM operation_log WHERE username='%s';", userName);
             ResultSet resultSet = stmt.executeQuery(sql);
-
+            
+            //Check if the result set is empty
+            if (!resultSet.next()){
+                System.out.println("User not found. Please enter a valida username.");
+                return operationsLog;//an empty list
+            } 
             // Loop through the result set and add each operation log entry to the list
             while (resultSet.next()) {
                 String operation = resultSet.getString("operation");
