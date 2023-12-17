@@ -9,7 +9,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 
 /**
  *
@@ -29,8 +28,9 @@ public class DatabaseWriter extends Database{
         try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);  
                 Statement stmt= conn.createStatement();
                 ){
+            DatabaseReader dbReader = new DatabaseReader();
             //If employee userName already exists, display that it already exists
-             if (employeeExists(employee.getUsername())) {
+             if (dbReader.employeeExists(employee.getUsername())) {
             System.out.println("Employee with username " + employee.getUsername() + " already exists. Not adding.");
                  System.out.println("-----------------------------------------------------------------------------");
             return false;
@@ -49,26 +49,7 @@ public class DatabaseWriter extends Database{
                   return false;
     }
     }
-    /**
-     * Check if the employee username already exists
-     * @param username the employee's username to be checked
-     * @return grant access if username not exists, denies otherwise.
-     * @throws SQLException 
-     */
-private boolean employeeExists(String username) throws SQLException {
-    //Making connection with database using the driver manager and credentials
-        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
-             Statement stmt = conn.createStatement()) {
-            // Query to check if an employee with the given username already exists
-            String sql = String.format("SELECT * FROM %s WHERE username='%s';", TABLE_NAME, username);
-            ResultSet resultSet = stmt.executeQuery(sql);
-            // Check if there are any results
-            return resultSet.next();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+
     /**
      * Update a specif field in our DB's table
      * @param userName The username of the employee requesting the update

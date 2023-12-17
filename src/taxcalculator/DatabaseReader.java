@@ -7,10 +7,15 @@ package taxcalculator;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
+import static taxcalculator.Database.DB_URL;
+import static taxcalculator.Database.PASSWORD;
+import static taxcalculator.Database.TABLE_NAME;
+import static taxcalculator.Database.USER;
 
 /**
  *
@@ -127,6 +132,26 @@ public class DatabaseReader extends Database{
           e.printStackTrace();//Throw error case error occurs
     }
 }
+        /**
+     * Check if the employee username already exists
+     * @param username the employee's username to be checked
+     * @return grant access if username not exists, denies otherwise.
+     * @throws SQLException 
+     */
+    public boolean employeeExists(String username) throws SQLException {
+    //Making connection with database using the driver manager and credentials
+        try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASSWORD);
+             Statement stmt = conn.createStatement()) {
+            // Query to check if an employee with the given username already exists
+            String sql = String.format("SELECT * FROM %s WHERE username='%s';", TABLE_NAME, username);
+            ResultSet resultSet = stmt.executeQuery(sql);
+            // Check if there are any results
+            return resultSet.next();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     /**
      * Retrieves the operation log for a user
      *

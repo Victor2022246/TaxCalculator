@@ -176,8 +176,7 @@ public class Prompt {
                     System.out.println(newEmp.Salary());
                     //Instantiating our RegularUser class with the paramenters from this newEmp
                     RegularUser regularUser = new RegularUser(userStudent, passwordStudent);
-                    regularUser.regularUserInfo();//calling method that will ask what user wants to change
-                          
+                    regularUser.regularUserInfo();//calling method that will ask what user wants to change                         
                 break;
             case 4:
                 System.out.println("-------------------------------------------------");
