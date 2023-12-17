@@ -90,8 +90,10 @@ public class Admin {
                break;
                
             case 5:
+                System.out.println("----------------------------------------------------");
                  //Case 5: admin wants to finish the program
                 System.out.println("Program Closed!!!");//Program finishes after displaying this.
+                System.out.println("----------------------------------------------------");
                 break;
 
             default:

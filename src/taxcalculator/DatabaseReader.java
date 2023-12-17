@@ -174,8 +174,8 @@ public class DatabaseReader extends Database{
             } 
             // Loop through the result set and add each operation log entry to the list
             while (resultSet.next()) {
-                String operation = resultSet.getString("operation");
-                Timestamp timestamp = resultSet.getTimestamp("timestamp");
+                String operation = resultSet.getString("operation");//Will save the user's oeprations
+                Timestamp timestamp = resultSet.getTimestamp("timestamp");//Will store the time user did the operation
                 String logEntry = String.format("[%s] %s", timestamp.toString(), operation);
                 operationsLog.add(logEntry);
             }
