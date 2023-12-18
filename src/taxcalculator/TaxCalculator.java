@@ -14,6 +14,7 @@ import java.sql.SQLException;
  * Group Member 2 Name: Victor Oliveira
  * Group Member 2 Student Number: 2022246
  * GitHub Link:https://github.com/Victor2022246/TaxCalculator
+ * Video link: https://vimeo.com/895791928/a3835b59be?share=copy
  */
 public class TaxCalculator {
 
