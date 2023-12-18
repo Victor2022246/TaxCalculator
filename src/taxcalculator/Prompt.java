@@ -6,6 +6,7 @@ package taxcalculator;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -41,10 +42,19 @@ public class Prompt {
                 + "2.User\n"
                 + "3.Register\n"
                 + "4.EXIT");
+        try{
         //Getting what user inputs on the keyboard
             this.typeOfUser = mykb.nextInt();
             //To be sure that the newLine character is consumed, a nextLine method is added.
-            mykb.nextLine();       
+            mykb.nextLine(); 
+            //Handle non-numeric input
+        }catch (InputMismatchException e){
+            System.out.println("------------------------------------------");
+            System.out.println("Please enter a valid number!");
+            System.out.println("------------------------------------------");
+            mykb.nextLine();
+            continue;
+        }
             //Starting the Switch statement
         switch (this.typeOfUser) {
             /**

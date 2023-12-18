@@ -73,9 +73,13 @@ public class Admin {
                 sc.nextLine();//cleaning input buffers
                 boolean delete = dbw.deleteEmployee(deleteEmployee);//Calling deleteEmployee method               
                 if (delete){
+                    System.out.println("------------------------------------------");
                     System.out.println("Employee has been deleted!");//If everything was fine, display user was deleted
+                    System.out.println("------------------------------------------");
                 }else{
+                    System.out.println("------------------------------------------");
                     System.out.println("Error Deleting employee. Please try again.");//Throw error message otherwise
+                    System.out.println("------------------------------------------");
                 }
                 break;
                 
